@@ -16,19 +16,19 @@ import SectionCard from './SectionCard';
 
 const ITEMS_PER_PAGE = 12;
 
-function SectionGrid({ sections, isLoading = false }) {
+function SectionGrid({ sections, isLoading = false, itemsPerPage = ITEMS_PER_PAGE, enableLoadMore = false }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const [loadMoreMode, setLoadMoreMode] = useState(false);
+  const [loadMoreMode, setLoadMoreMode] = useState(enableLoadMore);
 
-  const totalPages = Math.ceil(sections.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(sections.length / itemsPerPage);
 
   const currentSections = useMemo(() => {
     if (loadMoreMode) {
-      return sections.slice(0, currentPage * ITEMS_PER_PAGE);
+      return sections.slice(0, currentPage * itemsPerPage);
     }
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    return sections.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-  }, [sections, currentPage, loadMoreMode]);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return sections.slice(startIndex, startIndex + itemsPerPage);
+  }, [sections, currentPage, loadMoreMode, itemsPerPage]);
 
   const handlePageChange = useCallback((event, page) => {
     setCurrentPage(page);
@@ -75,7 +75,7 @@ function SectionGrid({ sections, isLoading = false }) {
           Showing{' '}
           {loadMoreMode
             ? currentSections.length
-            : `${(currentPage - 1) * ITEMS_PER_PAGE + 1}-${Math.min(currentPage * ITEMS_PER_PAGE, sections.length)}`}{' '}
+            : `${(currentPage - 1) * itemsPerPage + 1}-${Math.min(currentPage * itemsPerPage, sections.length)}`}{' '}
           of {sections.length} sections
         </Typography>
         <Button variant="outlined" size="small" onClick={togglePaginationMode} sx={{ whiteSpace: 'nowrap' }}>
@@ -91,7 +91,7 @@ function SectionGrid({ sections, isLoading = false }) {
       </Grid>
 
       {/* Navigation */}
-      {sections.length > ITEMS_PER_PAGE && (
+      {sections.length > itemsPerPage && (
         <Stack spacing={3} alignItems="center">
           {loadMoreMode ? (
             currentPage < totalPages && (
@@ -130,7 +130,9 @@ SectionGrid.propTypes = {
       category: PropTypes.string.isRequired
     })
   ).isRequired,
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  itemsPerPage: PropTypes.number,
+  enableLoadMore: PropTypes.bool
 };
 
 export default SectionGrid;
