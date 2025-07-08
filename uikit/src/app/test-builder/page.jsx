@@ -24,7 +24,8 @@ export default function TestBuilderPage() {
         <ol style={{ textAlign: 'left', maxWidth: '500px', margin: '0 auto' }}>
           <li>Get your Builder.io API key from builder.io</li>
           <li>Replace "your-builder-api-key-here" in .env file</li>
-          <li>Create content in Builder.io</li>
+          <li>Create content in Builder.io with URL path "/builder/"</li>
+          <li>Test at /builder/* routes</li>
           <li>Proceed to Phase 3: Component Registration</li>
         </ol>
       </div>
