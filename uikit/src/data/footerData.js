@@ -104,9 +104,11 @@ export const usefulLinksData = [
 export const footerLinkProps = linkProps;
 export const footerIconProps = iconProps;
 
-export default {
+const footerData = {
   menuData: footerMenuData,
   usefulLinks: usefulLinksData,
   linkProps: footerLinkProps,
   iconProps: footerIconProps
 };
+
+export default footerData;
