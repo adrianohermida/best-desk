@@ -9,6 +9,10 @@ const Feature20 = dynamic(() => import('./src/blocks/feature/Feature20').then((m
 
 const Feature21 = dynamic(() => import('./src/blocks/feature/Feature21').then((mod) => ({ default: mod.default })));
 
+const Navbar10 = dynamic(() => import('./src/blocks/navbar/Navbar10').then((mod) => ({ default: mod.default })));
+
+const Footer7 = dynamic(() => import('./src/blocks/footer/Footer7').then((mod) => ({ default: mod.default })));
+
 // Base registry for Builder.io components
 export const customComponents = [
   {
