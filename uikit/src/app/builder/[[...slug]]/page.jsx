@@ -1,7 +1,7 @@
 import { Content, fetchOneEntry, isPreviewing, isEditing } from '@builder.io/sdk-react';
 import { BUILDER_CONFIG, validateBuilderConfig } from '@/lib/builder/config';
 
-export default async function Page(props) {
+export default async function BuilderPage(props) {
   // Validate Builder.io configuration
   validateBuilderConfig();
 
@@ -9,7 +9,7 @@ export default async function Page(props) {
   const { initializeNodeRuntime } = await import('@builder.io/sdk-react/node/init');
   initializeNodeRuntime();
 
-  const urlPath = '/' + (props.params?.slug?.join('/') || '');
+  const urlPath = '/builder/' + (props.params?.slug?.join('/') || '');
 
   const content = await fetchOneEntry({
     options: { ...BUILDER_CONFIG.defaultOptions, ...props.searchParams },
@@ -23,9 +23,10 @@ export default async function Page(props) {
   if (!canShowContent) {
     return (
       <>
-        <h1>404</h1>
-        <p>Make sure you have your content published at builder.io.</p>
+        <h1>Builder.io Content Not Found</h1>
+        <p>Make sure you have your content published at builder.io with the correct URL path.</p>
         <p>Current path: {urlPath}</p>
+        <p>Expected format: Create content in Builder.io with URL path matching this route.</p>
       </>
     );
   }
