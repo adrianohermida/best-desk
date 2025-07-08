@@ -25,6 +25,12 @@ const Testimonial10 = dynamic(() => import('./src/blocks/testimonial/Testimonial
 
 const ContactUs4 = dynamic(() => import('./src/blocks/contact-us/ContactUs4').then((mod) => ({ default: mod.default })));
 
+const SmallHero3 = dynamic(() => import('./src/blocks/small-hero/SmallHero3').then((mod) => ({ default: mod.default })));
+
+const Integration2 = dynamic(() => import('./src/blocks/integration/Integration2').then((mod) => ({ default: mod.default })));
+
+const Faq6 = dynamic(() => import('./src/blocks/faq/Faq6').then((mod) => ({ default: mod.default })));
+
 // Base registry for Builder.io components
 export const customComponents = [
   {
