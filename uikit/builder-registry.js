@@ -58,5 +58,110 @@ export const customComponents = [
       }
     ],
     canHaveChildren: false
+  },
+  {
+    component: Feature18,
+    name: 'Feature18',
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'Powerful Features'
+      },
+      {
+        name: 'caption',
+        type: 'string',
+        defaultValue: 'Discover what makes our platform special'
+      },
+      {
+        name: 'topics',
+        type: 'list',
+        defaultValue: [
+          {
+            id: '1',
+            title: 'Easy Integration',
+            description: 'Quick and simple setup process',
+            image: '/assets/images/graphics/feature1.svg'
+          }
+        ]
+      }
+    ],
+    canHaveChildren: false
+  },
+  {
+    component: Feature20,
+    name: 'Feature20',
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'Advanced Features'
+      },
+      {
+        name: 'caption',
+        type: 'string',
+        defaultValue: 'Everything you need to build amazing products'
+      },
+      {
+        name: 'image',
+        type: 'file',
+        allowedFileTypes: ['jpeg', 'jpg', 'png', 'svg'],
+        defaultValue: '/assets/images/graphics/feature-main.svg'
+      },
+      {
+        name: 'features',
+        type: 'list',
+        defaultValue: [{ icon: 'tabler-check', title: 'Fast Performance', description: 'Optimized for speed' }]
+      },
+      {
+        name: 'actionBtn',
+        type: 'object',
+        defaultValue: { children: 'Learn More', href: '#' }
+      },
+      {
+        name: 'secondaryBtn',
+        type: 'object',
+        defaultValue: { children: 'Get Started', href: '#' }
+      }
+    ],
+    canHaveChildren: false
+  },
+  {
+    component: Feature21,
+    name: 'Feature21',
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'Feature Showcase'
+      },
+      {
+        name: 'caption',
+        type: 'string',
+        defaultValue: 'See how our features work together'
+      },
+      {
+        name: 'image',
+        type: 'file',
+        allowedFileTypes: ['jpeg', 'jpg', 'png', 'svg'],
+        defaultValue: '/assets/images/graphics/feature-showcase.svg'
+      },
+      {
+        name: 'features',
+        type: 'list',
+        defaultValue: [{ icon: 'tabler-star', title: 'Premium Quality', description: 'Best in class solutions' }]
+      },
+      {
+        name: 'primaryBtn',
+        type: 'object',
+        defaultValue: { children: 'Start Free Trial', href: '#' }
+      },
+      {
+        name: 'secondaryBtn',
+        type: 'object',
+        defaultValue: { children: 'View Demo', href: '#' }
+      }
+    ],
+    canHaveChildren: false
   }
 ];
