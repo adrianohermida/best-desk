@@ -227,8 +227,8 @@ export const bundleOptimization = {
   // Dynamic import with error handling
   dynamicImport: async (importFunction) => {
     try {
-      const module = await importFunction();
-      return module;
+      const result = await importFunction();
+      return result;
     } catch (error) {
       console.error('Dynamic import failed:', error);
       return null;
