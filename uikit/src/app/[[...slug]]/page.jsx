@@ -1,14 +1,7 @@
 import { Content, fetchOneEntry, isPreviewing, isEditing } from '@builder.io/sdk-react';
 import { BUILDER_CONFIG, validateBuilderConfig } from '@/lib/builder/config';
 
-interface PageProps {
-  params: {
-    slug: string[];
-  };
-  searchParams: Record<string, string>;
-}
-
-export default async function Page(props: PageProps) {
+export default async function Page(props) {
   // Validate Builder.io configuration
   validateBuilderConfig();
 
