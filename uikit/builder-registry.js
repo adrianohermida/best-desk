@@ -3,6 +3,12 @@ import dynamic from 'next/dynamic';
 // Dynamic imports for Builder.io components
 const Hero17 = dynamic(() => import('./src/blocks/hero/Hero17').then((mod) => ({ default: mod.default })));
 
+const Feature18 = dynamic(() => import('./src/blocks/feature/Feature18').then((mod) => ({ default: mod.default })));
+
+const Feature20 = dynamic(() => import('./src/blocks/feature/Feature20').then((mod) => ({ default: mod.default })));
+
+const Feature21 = dynamic(() => import('./src/blocks/feature/Feature21').then((mod) => ({ default: mod.default })));
+
 // Base registry for Builder.io components
 export const customComponents = [
   {
