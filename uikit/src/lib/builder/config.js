@@ -2,7 +2,7 @@
 
 export const BUILDER_CONFIG = {
   // API Key from environment variables
-  apiKey: process.env.NEXT_PUBLIC_BUILDER_API_KEY!,
+  apiKey: process.env.NEXT_PUBLIC_BUILDER_API_KEY,
 
   // Available models for Builder.io
   models: {
@@ -21,7 +21,7 @@ export const BUILDER_CONFIG = {
     enabled: true,
     previewPath: '/preview'
   }
-} as const;
+};
 
 // Validation function to ensure API key is configured
 export function validateBuilderConfig() {
