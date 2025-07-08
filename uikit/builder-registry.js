@@ -456,5 +456,124 @@ export const customComponents = [
       }
     ],
     canHaveChildren: false
+  },
+  {
+    component: Clientele3,
+    name: 'Clientele3',
+    inputs: [
+      {
+        name: 'title',
+        type: 'string',
+        defaultValue: 'Our Clients'
+      },
+      {
+        name: 'clienteleList',
+        type: 'list',
+        defaultValue: [
+          { name: 'Client 1', logo: '/assets/images/clientele/client1.png' },
+          { name: 'Client 2', logo: '/assets/images/clientele/client2.png' }
+        ]
+      }
+    ],
+    canHaveChildren: false
+  },
+  {
+    component: MegaMenu4,
+    name: 'MegaMenu4',
+    inputs: [
+      {
+        name: 'menuItems',
+        type: 'list',
+        defaultValue: [{ title: 'Products', items: ['Product 1', 'Product 2'] }]
+      }
+    ],
+    canHaveChildren: true
+  },
+  {
+    component: MegaMenu5,
+    name: 'MegaMenu5',
+    inputs: [
+      {
+        name: 'menuItems',
+        type: 'list',
+        defaultValue: [{ title: 'Services', items: ['Service 1', 'Service 2'] }]
+      }
+    ],
+    canHaveChildren: true
+  },
+  {
+    component: Other1,
+    name: 'Other1',
+    inputs: [
+      {
+        name: 'content',
+        type: 'string',
+        defaultValue: 'Custom content area 1'
+      }
+    ],
+    canHaveChildren: true
+  },
+  {
+    component: Other2,
+    name: 'Other2',
+    inputs: [
+      {
+        name: 'content',
+        type: 'string',
+        defaultValue: 'Custom content area 2'
+      }
+    ],
+    canHaveChildren: true
+  },
+  {
+    component: ProPage,
+    name: 'ProPage',
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'Upgrade to Pro'
+      },
+      {
+        name: 'features',
+        type: 'list',
+        defaultValue: [{ feature: 'Advanced Features', available: true }]
+      }
+    ],
+    canHaveChildren: false
+  },
+  {
+    component: Error404Block,
+    name: 'Error404Block',
+    inputs: [
+      {
+        name: 'title',
+        type: 'string',
+        defaultValue: 'Page Not Found'
+      },
+      {
+        name: 'message',
+        type: 'string',
+        defaultValue: 'The page you are looking for does not exist.'
+      }
+    ],
+    canHaveChildren: false
+  },
+  {
+    component: Error500Block,
+    name: 'Error500Block',
+    inputs: [
+      {
+        name: 'title',
+        type: 'string',
+        defaultValue: 'Server Error'
+      },
+      {
+        name: 'message',
+        type: 'string',
+        defaultValue: 'Something went wrong on our end.'
+      }
+    ],
+    canHaveChildren: false
   }
 ];
