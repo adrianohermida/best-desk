@@ -9,6 +9,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 // @project
 import ProviderWrapper from './ProviderWrapper';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import { mainMetadata } from '@/metadata';
 
 const gaId = process.env.NEXT_PUBLIC_ANALYTICS_ID || '';
@@ -30,7 +31,9 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <ProviderWrapper>{children}</ProviderWrapper>
+          <ErrorBoundary>
+            <ProviderWrapper>{children}</ProviderWrapper>
+          </ErrorBoundary>
         </AppRouterCacheProvider>
         {gaId && <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />}
       </body>
