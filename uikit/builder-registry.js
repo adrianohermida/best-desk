@@ -167,5 +167,17 @@ export const customComponents = [
       }
     ],
     canHaveChildren: false
+  },
+  {
+    component: Navbar10,
+    name: 'Navbar10',
+    inputs: [],
+    canHaveChildren: true
+  },
+  {
+    component: Footer7,
+    name: 'Footer7',
+    inputs: [],
+    canHaveChildren: false
   }
 ];
