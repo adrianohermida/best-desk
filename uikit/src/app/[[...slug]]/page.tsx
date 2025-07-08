@@ -9,6 +9,9 @@ interface PageProps {
 }
 
 export default async function Page(props: PageProps) {
+  // Validate Builder.io configuration
+  validateBuilderConfig();
+
   // NOTE: This import MUST be inside the Page component
   const { initializeNodeRuntime } = await import('@builder.io/sdk-react/node/init');
   initializeNodeRuntime();
@@ -16,9 +19,9 @@ export default async function Page(props: PageProps) {
   const urlPath = '/' + (props.params?.slug?.join('/') || '');
 
   const content = await fetchOneEntry({
-    options: props.searchParams,
-    apiKey: BUILDER_PUBLIC_API_KEY,
-    model: 'page',
+    options: { ...BUILDER_CONFIG.defaultOptions, ...props.searchParams },
+    apiKey: BUILDER_CONFIG.apiKey,
+    model: BUILDER_CONFIG.models.page,
     userAttributes: { urlPath }
   });
 
@@ -29,9 +32,10 @@ export default async function Page(props: PageProps) {
       <>
         <h1>404</h1>
         <p>Make sure you have your content published at builder.io.</p>
+        <p>Current path: {urlPath}</p>
       </>
     );
   }
 
-  return <Content content={content} apiKey={BUILDER_PUBLIC_API_KEY} model={'page'} />;
+  return <Content content={content} apiKey={BUILDER_CONFIG.apiKey} model={BUILDER_CONFIG.models.page} />;
 }
