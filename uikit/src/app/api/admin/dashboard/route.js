@@ -5,7 +5,8 @@ import { prisma } from '@/lib/prisma';
 // In real implementation, verify JWT token and check roles
 function verifyAdminAccess(request) {
   // Mock admin verification - replace with real auth
-  const authHeader = request.headers.get('authorization');
+  // const authHeader = request.headers.get('authorization');
+  // TODO: Implement real JWT verification
   return true; // For now, allow all requests
 }
 
