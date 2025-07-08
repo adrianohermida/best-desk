@@ -1,6 +1,6 @@
 // Validation schemas for common forms and data structures
 
-import { validators, compose } from '@/utils/validators';
+import { validators } from '@/utils/validators';
 
 // Authentication schemas
 export const authSchemas = {
@@ -88,7 +88,7 @@ export const profileSchemas = {
 
   // Address information
   address: {
-    street: [validators.required('Endereço é obrigatório'), validators.maxLength(200)],
+    street: [validators.required('Endereço �� obrigatório'), validators.maxLength(200)],
     number: [validators.required('Número é obrigatório'), validators.maxLength(10)],
     complement: [validators.maxLength(100)],
     neighborhood: [validators.required('Bairro é obrigatório'), validators.maxLength(100)],
