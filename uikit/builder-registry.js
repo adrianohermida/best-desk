@@ -376,5 +376,69 @@ export const customComponents = [
       }
     ],
     canHaveChildren: false
+  },
+  {
+    component: SmallHero3,
+    name: 'SmallHero3',
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'Welcome to our platform'
+      },
+      {
+        name: 'breadcrumbs',
+        type: 'list',
+        defaultValue: [{ title: 'Home', href: '/' }, { title: 'About' }]
+      }
+    ],
+    canHaveChildren: false
+  },
+  {
+    component: Integration2,
+    name: 'Integration2',
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'Seamless Integrations'
+      },
+      {
+        name: 'caption',
+        type: 'string',
+        defaultValue: 'Connect with your favorite tools'
+      },
+      {
+        name: 'integrations',
+        type: 'list',
+        defaultValue: [
+          { name: 'Slack', logo: '/assets/images/integrations/slack.png' },
+          { name: 'Google', logo: '/assets/images/integrations/google.png' }
+        ]
+      }
+    ],
+    canHaveChildren: false
+  },
+  {
+    component: Faq6,
+    name: 'Faq6',
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'Frequently Asked Questions'
+      },
+      {
+        name: 'faqs',
+        type: 'list',
+        defaultValue: [
+          {
+            question: 'How do I get started?',
+            answer: 'Simply sign up and follow our onboarding process.'
+          }
+        ]
+      }
+    ],
+    canHaveChildren: false
   }
 ];
