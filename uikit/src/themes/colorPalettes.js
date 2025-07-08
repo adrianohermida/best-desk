@@ -3,27 +3,6 @@ import { ColorSchemes } from '@/contexts/ThemeContext';
 
 /***************************  COLOR PALETTE GENERATOR  ***************************/
 
-// Base color generation utilities
-const generateShades = (baseColor, isDark = false) => {
-  const shades = {
-    50: isDark ? '#fafafa' : '#f8fafc',
-    100: isDark ? '#f5f5f5' : '#f1f5f9',
-    200: isDark ? '#eeeeee' : '#e2e8f0',
-    300: isDark ? '#e0e0e0' : '#cbd5e1',
-    400: isDark ? '#bdbdbd' : '#94a3b8',
-    500: baseColor,
-    600: isDark ? '#757575' : '#64748b',
-    700: isDark ? '#616161' : '#475569',
-    800: isDark ? '#424242' : '#334155',
-    900: isDark ? '#212121' : '#1e293b',
-    A100: isDark ? '#ff8a80' : '#f1f5f9',
-    A200: isDark ? '#ff5722' : '#e2e8f0',
-    A400: isDark ? '#ff1744' : '#cbd5e1',
-    A700: isDark ? '#d50000' : '#94a3b8'
-  };
-  return shades;
-};
-
 /***************************  COLOR SCHEMES  ***************************/
 
 export const colorPalettes = {
