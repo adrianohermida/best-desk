@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-import { lightPalette, darkPalette, customColors } from './palette';
+import { lightPalette, darkPalette } from './palette';
 import { typography } from './typography';
 
 // Component overrides for consistent styling

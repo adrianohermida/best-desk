@@ -55,13 +55,14 @@ export const storeConfig = {
 };
 
 // Store provider that combines all providers
+// Note: Import React if using JSX directly
+import React from 'react';
+
 export function StoreProvider({ children }) {
-  return (
-    <AppProvider>
-      <AuthProvider>
-        <ConfigProvider>{children}</ConfigProvider>
-      </AuthProvider>
-    </AppProvider>
+  return React.createElement(
+    AppProvider,
+    null,
+    React.createElement(AuthProvider, null, React.createElement(ConfigProvider, null, children))
   );
 }
 
