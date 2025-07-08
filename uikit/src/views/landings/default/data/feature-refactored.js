@@ -1,6 +1,5 @@
 // @project
 import branding from '@/branding.json';
-import { BUY_NOW_URL } from '@/path';
 
 // Import modularized features
 import { feature2 } from './features/feature2';
