@@ -1,4 +1,5 @@
 import { Content, fetchOneEntry, isPreviewing, isEditing } from '@builder.io/sdk-react';
+import { BUILDER_CONFIG, validateBuilderConfig } from '@/lib/builder/config';
 
 interface PageProps {
   params: {
@@ -6,9 +7,6 @@ interface PageProps {
   };
   searchParams: Record<string, string>;
 }
-
-// Builder.io API key - use environment variable
-const BUILDER_PUBLIC_API_KEY = process.env.NEXT_PUBLIC_BUILDER_API_KEY!;
 
 export default async function Page(props: PageProps) {
   // NOTE: This import MUST be inside the Page component
