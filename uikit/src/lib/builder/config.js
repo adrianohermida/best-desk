@@ -25,8 +25,9 @@ export const BUILDER_CONFIG = {
 
 // Validation function to ensure API key is configured
 export function validateBuilderConfig() {
-  if (!BUILDER_CONFIG.apiKey) {
-    throw new Error('NEXT_PUBLIC_BUILDER_API_KEY is not configured. Please add your Builder.io API key to the .env file.');
+  if (!BUILDER_CONFIG.apiKey || BUILDER_CONFIG.apiKey === 'your-builder-api-key-here') {
+    console.warn('⚠️ BUILDER.IO: API key not configured. Add your API key to .env file.');
+    return false;
   }
   return true;
 }
