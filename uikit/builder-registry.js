@@ -19,6 +19,12 @@ const Cta5 = dynamic(() => import('./src/blocks/cta/Cta5').then((mod) => ({ defa
 
 const Pricing9 = dynamic(() => import('./src/blocks/pricing/Pricing9').then((mod) => ({ default: mod.default })));
 
+const Benefit5 = dynamic(() => import('./src/blocks/benefit/Benefit5').then((mod) => ({ default: mod.default })));
+
+const Testimonial10 = dynamic(() => import('./src/blocks/testimonial/Testimonial10').then((mod) => ({ default: mod.default })));
+
+const ContactUs4 = dynamic(() => import('./src/blocks/contact-us/ContactUs4').then((mod) => ({ default: mod.default })));
+
 // Base registry for Builder.io components
 export const customComponents = [
   {
