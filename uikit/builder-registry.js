@@ -13,6 +13,12 @@ const Navbar10 = dynamic(() => import('./src/blocks/navbar/Navbar10').then((mod)
 
 const Footer7 = dynamic(() => import('./src/blocks/footer/Footer7').then((mod) => ({ default: mod.default })));
 
+const Cta4 = dynamic(() => import('./src/blocks/cta/Cta4').then((mod) => ({ default: mod.default })));
+
+const Cta5 = dynamic(() => import('./src/blocks/cta/Cta5').then((mod) => ({ default: mod.default })));
+
+const Pricing9 = dynamic(() => import('./src/blocks/pricing/Pricing9').then((mod) => ({ default: mod.default })));
+
 // Base registry for Builder.io components
 export const customComponents = [
   {
