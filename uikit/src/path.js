@@ -3,7 +3,7 @@ function path(urlChunks) {
 }
 
 export const SECTION_PATH = '/sections';
-export const ADMIN_PATH = 'http://localhost:3001/auth/login';
+export const ADMIN_PATH = '/admin/dashboard';
 export const BUY_NOW_URL = 'https://mui.com/store/items/saasable-multipurpose-ui-kit-and-dashboard-template';
 export const FREEBIES_URL = 'http://localhost:3001/auth/login';
 export const DOCS_URL = 'https://phoenixcoded.gitbook.io/saasable ';
