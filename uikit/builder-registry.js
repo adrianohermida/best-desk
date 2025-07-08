@@ -31,6 +31,22 @@ const Integration2 = dynamic(() => import('./src/blocks/integration/Integration2
 
 const Faq6 = dynamic(() => import('./src/blocks/faq/Faq6').then((mod) => ({ default: mod.default })));
 
+const Clientele3 = dynamic(() => import('./src/blocks/clientele/Clientele3').then((mod) => ({ default: mod.default })));
+
+const MegaMenu4 = dynamic(() => import('./src/blocks/mega-menu/MegaMenu4').then((mod) => ({ default: mod.default })));
+
+const MegaMenu5 = dynamic(() => import('./src/blocks/mega-menu/MegaMenu5').then((mod) => ({ default: mod.default })));
+
+const Other1 = dynamic(() => import('./src/blocks/other/Other1').then((mod) => ({ default: mod.default })));
+
+const Other2 = dynamic(() => import('./src/blocks/other/Other2').then((mod) => ({ default: mod.default })));
+
+const ProPage = dynamic(() => import('./src/blocks/pro-page/ProPage').then((mod) => ({ default: mod.default })));
+
+const Error404Block = dynamic(() => import('./src/blocks/maintenance/Error404').then((mod) => ({ default: mod.default })));
+
+const Error500Block = dynamic(() => import('./src/blocks/maintenance/Error500').then((mod) => ({ default: mod.default })));
+
 // Base registry for Builder.io components
 export const customComponents = [
   {
