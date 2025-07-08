@@ -13,6 +13,7 @@ const cspHeader = `
 `;
 
 const nextConfig = {
+  allowedDevOrigins: ['*.fly.dev'],
   modularizeImports: {
     '@mui/material': {
       transform: '@mui/material/{{member}}'

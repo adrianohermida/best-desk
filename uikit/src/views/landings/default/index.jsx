@@ -1,10 +1,15 @@
 'use client';
 
+// @next
+import dynamic from 'next/dynamic';
+
 // @project
 import { Feature20 } from '@/blocks/feature';
 import { Hero17 } from '@/blocks/hero';
 import LazySection from '@/components/LazySection';
 import useDataThemeMode from '@/hooks/useDataThemeMode';
+
+const ScrollFab = dynamic(() => import('@/components/ScrollFab'));
 
 // @data
 import {
@@ -67,6 +72,9 @@ export default function Main() {
         ]}
         offset="200px"
       />
+
+      {/* scroll to top section */}
+      <ScrollFab />
     </>
   );
 }
