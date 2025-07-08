@@ -59,6 +59,10 @@ const Typography = dynamic(() => import('./src/blocks/Typography').then((mod) =>
 
 const ThemePicker = dynamic(() => import('./src/components/ThemePicker').then((mod) => ({ default: mod.BuilderThemePicker })));
 
+const SaasStartupTemplate = dynamic(() => import('./src/templates/landing/SaasStartup').then((mod) => ({ default: mod.default })));
+
+const CorporateTemplate = dynamic(() => import('./src/templates/business/CorporateTemplate').then((mod) => ({ default: mod.default })));
+
 // Base registry for Builder.io components
 export const customComponents = [
   {
