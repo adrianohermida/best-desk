@@ -296,5 +296,79 @@ export const customComponents = [
       }
     ],
     canHaveChildren: false
+  },
+  {
+    component: Benefit5,
+    name: 'Benefit5',
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'Why choose us?'
+      },
+      {
+        name: 'caption',
+        type: 'string',
+        defaultValue: 'Discover the benefits of our platform'
+      },
+      {
+        name: 'blockDetail',
+        type: 'object',
+        defaultValue: {
+          benefits: [{ icon: 'tabler-rocket', title: 'Fast Performance', description: 'Lightning fast speeds' }]
+        }
+      }
+    ],
+    canHaveChildren: false
+  },
+  {
+    component: Testimonial10,
+    name: 'Testimonial10',
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'What our customers say'
+      },
+      {
+        name: 'testimonials',
+        type: 'list',
+        defaultValue: [
+          {
+            quote: 'Amazing product and great support!',
+            author: 'John Doe',
+            role: 'CEO at Company',
+            avatar: '/assets/images/avatar/avatar1.png'
+          }
+        ]
+      }
+    ],
+    canHaveChildren: false
+  },
+  {
+    component: ContactUs4,
+    name: 'ContactUs4',
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'Get in touch'
+      },
+      {
+        name: 'caption',
+        type: 'string',
+        defaultValue: 'We would love to hear from you'
+      },
+      {
+        name: 'contactInfo',
+        type: 'object',
+        defaultValue: {
+          address: '123 Main St, City, Country',
+          phone: '+1 234 567 8900',
+          email: 'contact@example.com'
+        }
+      }
+    ],
+    canHaveChildren: false
   }
 ];
