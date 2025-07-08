@@ -635,5 +635,41 @@ export const customComponents = [
     name: 'Typography',
     inputs: [],
     canHaveChildren: false
+  },
+  {
+    component: ThemePicker,
+    name: 'ThemePicker',
+    inputs: [
+      {
+        name: 'variant',
+        type: 'string',
+        enum: ['full', 'compact'],
+        defaultValue: 'full'
+      },
+      {
+        name: 'themeVariant',
+        type: 'string',
+        enum: ['light', 'dark', 'auto'],
+        defaultValue: 'light'
+      },
+      {
+        name: 'themeStyle',
+        type: 'string',
+        enum: ['minimal', 'bold', 'elegant', 'modern', 'classic'],
+        defaultValue: 'modern'
+      },
+      {
+        name: 'colorScheme',
+        type: 'string',
+        enum: ['default', 'blue', 'green', 'purple', 'orange', 'red'],
+        defaultValue: 'default'
+      },
+      {
+        name: 'animations',
+        type: 'boolean',
+        defaultValue: true
+      }
+    ],
+    canHaveChildren: false
   }
 ];
