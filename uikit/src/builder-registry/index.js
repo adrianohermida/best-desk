@@ -5,6 +5,7 @@
 import { heroComponents } from './components/hero';
 import { featureComponents } from './components/feature';
 import { navigationComponents } from './components/navigation';
+import { sectionsNavigationComponents } from './components/sections-navigation';
 import { ctaComponents } from './components/cta';
 import { socialProofComponents } from './components/social-proof';
 import { commerceComponents } from './components/commerce';
@@ -16,7 +17,7 @@ import { templateComponents } from './components/templates';
 export const componentsByCategory = {
   hero: heroComponents,
   feature: featureComponents,
-  navigation: navigationComponents,
+  navigation: [...navigationComponents, ...sectionsNavigationComponents],
   cta: ctaComponents,
   'social-proof': socialProofComponents,
   commerce: commerceComponents,
@@ -47,6 +48,7 @@ export const customComponents = [
   ...heroComponents,
   ...featureComponents,
   ...navigationComponents,
+  ...sectionsNavigationComponents,
   ...ctaComponents,
   ...socialProofComponents,
   ...commerceComponents,
