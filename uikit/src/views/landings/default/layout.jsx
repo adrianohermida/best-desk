@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import { Footer7 } from '@/blocks/footer';
 import { Navbar10 } from '@/blocks/navbar';
 import { NavbarContent10 } from '@/blocks/navbar/navbar-content';
+import EnhancedThemeProvider from '@/components/EnhancedThemeProvider';
 
 // @data
 import { navbar } from './data';
@@ -16,7 +17,7 @@ import { navbar } from './data';
 
 export default function MainLayout({ children }) {
   return (
-    <>
+    <EnhancedThemeProvider>
       {/* header section */}
       <Box sx={{ bgcolor: 'grey.100' }}>
         <Navbar10>
@@ -27,7 +28,7 @@ export default function MainLayout({ children }) {
       {children}
       {/* footer section */}
       <Footer7 />
-    </>
+    </EnhancedThemeProvider>
   );
 }
 
