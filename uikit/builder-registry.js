@@ -585,5 +585,53 @@ export const customComponents = [
       }
     ],
     canHaveChildren: false
+  },
+  {
+    component: NavbarContent10,
+    name: 'NavbarContent10',
+    inputs: [
+      {
+        name: 'landingBaseUrl',
+        type: 'string',
+        defaultValue: '/'
+      },
+      {
+        name: 'navItems',
+        type: 'list',
+        defaultValue: [
+          { title: 'Home', link: '/' },
+          { title: 'About', link: '/about' }
+        ]
+      },
+      {
+        name: 'primaryBtn',
+        type: 'object',
+        defaultValue: { children: 'Get Started', href: '#' }
+      },
+      {
+        name: 'secondaryBtn',
+        type: 'object',
+        defaultValue: { children: 'Login', href: '/login' }
+      }
+    ],
+    canHaveChildren: false
+  },
+  {
+    component: PrivacyPolicy,
+    name: 'PrivacyPolicy',
+    inputs: [],
+    canHaveChildren: false
+  },
+  {
+    component: TermsCondition,
+    name: 'TermsCondition',
+    inputs: [],
+    canHaveChildren: false
+  },
+  {
+    component: Typography,
+    name: 'Typography',
+    inputs: [],
+    canHaveChildren: false
   }
 ];
