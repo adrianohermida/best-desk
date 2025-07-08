@@ -675,5 +675,99 @@ export const customComponents = [
       }
     ],
     canHaveChildren: false
+  },
+  {
+    component: SaasStartupTemplate,
+    name: 'SaasStartupTemplate',
+    inputs: [
+      {
+        name: 'showNavbar',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showHero',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showFeatures',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showPricing',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showTestimonials',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showFaq',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showCta',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showFooter',
+        type: 'boolean',
+        defaultValue: true
+      }
+    ],
+    canHaveChildren: false
+  },
+  {
+    component: CorporateTemplate,
+    name: 'CorporateTemplate',
+    inputs: [
+      {
+        name: 'showNavbar',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showHero',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showAbout',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showServices',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showBenefits',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showClients',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showContact',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'showFooter',
+        type: 'boolean',
+        defaultValue: true
+      }
+    ],
+    canHaveChildren: false
   }
 ];
