@@ -4,7 +4,11 @@ import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 
 // @project
-import { Hero17 } from '@/blocks/hero';
+import dynamic from 'next/dynamic';
+
+const Hero17 = dynamic(() => import('@/blocks/hero').then((mod) => ({ default: mod.Hero17 })), {
+  loading: () => <div>Carregando...</div>
+});
 
 /***************************  HERO 17 - DATA  ***************************/
 
