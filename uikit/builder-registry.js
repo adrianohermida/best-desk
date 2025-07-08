@@ -185,5 +185,110 @@ export const customComponents = [
     name: 'Footer7',
     inputs: [],
     canHaveChildren: false
+  },
+  {
+    component: Cta4,
+    name: 'Cta4',
+    inputs: [
+      {
+        name: 'headLine',
+        type: 'string',
+        defaultValue: 'Ready to get started?'
+      },
+      {
+        name: 'primaryBtn',
+        type: 'object',
+        defaultValue: { children: 'Get Started', href: '#' }
+      },
+      {
+        name: 'profileGroups',
+        type: 'object',
+        defaultValue: { avatars: [], max: 4 }
+      },
+      {
+        name: 'list',
+        type: 'list',
+        defaultValue: [
+          { icon: 'tabler-check', text: 'No setup fees' },
+          { icon: 'tabler-check', text: 'Cancel anytime' }
+        ]
+      },
+      {
+        name: 'clientContent',
+        type: 'string',
+        defaultValue: 'Trusted by 10,000+ customers'
+      }
+    ],
+    canHaveChildren: false
+  },
+  {
+    component: Cta5,
+    name: 'Cta5',
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'Subscribe to our newsletter'
+      },
+      {
+        name: 'caption',
+        type: 'string',
+        defaultValue: 'Get the latest updates and news'
+      },
+      {
+        name: 'label',
+        type: 'string',
+        defaultValue: 'Email address'
+      },
+      {
+        name: 'input',
+        type: 'boolean',
+        defaultValue: true
+      },
+      {
+        name: 'primaryBtn',
+        type: 'object',
+        defaultValue: { children: 'Subscribe', href: '#' }
+      }
+    ],
+    canHaveChildren: false
+  },
+  {
+    component: Pricing9,
+    name: 'Pricing9',
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'Choose your plan'
+      },
+      {
+        name: 'caption',
+        type: 'string',
+        defaultValue: 'Simple, transparent pricing'
+      },
+      {
+        name: 'features',
+        type: 'list',
+        defaultValue: [
+          { feature: 'Basic features', free: true, pro: true },
+          { feature: 'Advanced features', free: false, pro: true }
+        ]
+      },
+      {
+        name: 'plans',
+        type: 'list',
+        defaultValue: [
+          {
+            title: 'Free',
+            price: '$0',
+            description: 'For individuals',
+            features: ['Basic features', '5 projects'],
+            button: { children: 'Get Started', href: '#' }
+          }
+        ]
+      }
+    ],
+    canHaveChildren: false
   }
 ];
