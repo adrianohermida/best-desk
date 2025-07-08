@@ -1,10 +1,7 @@
-import { use } from 'react';
+import config from '@/utils/config';
 
-// @project
-import { ConfigContext } from '@/contexts/ConfigContext';
-
-/***************************  HOOKS - CONFIG  ***************************/
+/***************************  USE CONFIG HOOK  ***************************/
 
 export default function useConfig() {
-  return use(ConfigContext);
+  return config;
 }
