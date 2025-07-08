@@ -72,6 +72,9 @@ export default function Main() {
         ]}
         offset="200px"
       />
+
+      {/* scroll to top section */}
+      <ScrollFab />
     </>
   );
 }
