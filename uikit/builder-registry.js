@@ -47,6 +47,16 @@ const Error404Block = dynamic(() => import('./src/blocks/maintenance/Error404').
 
 const Error500Block = dynamic(() => import('./src/blocks/maintenance/Error500').then((mod) => ({ default: mod.default })));
 
+const NavbarContent10 = dynamic(() =>
+  import('./src/blocks/navbar/navbar-content/NavbarContent10').then((mod) => ({ default: mod.default }))
+);
+
+const PrivacyPolicy = dynamic(() => import('./src/blocks/PrivacyPolicy').then((mod) => ({ default: mod.default })));
+
+const TermsCondition = dynamic(() => import('./src/blocks/TermsCondition').then((mod) => ({ default: mod.default })));
+
+const Typography = dynamic(() => import('./src/blocks/Typography').then((mod) => ({ default: mod.default })));
+
 // Base registry for Builder.io components
 export const customComponents = [
   {
