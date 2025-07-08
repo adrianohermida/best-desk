@@ -1,5 +1,9 @@
 // @project
-import { Feature20 } from '@/blocks/feature';
+import dynamic from 'next/dynamic';
+
+const Feature20 = dynamic(() => import('@/blocks/feature').then((mod) => ({ default: mod.Feature20 })), {
+  loading: () => <div>Carregando...</div>
+});
 
 /***************************  FEATURE 20 - DATA  ***************************/
 
