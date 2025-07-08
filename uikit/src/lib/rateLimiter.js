@@ -21,9 +21,7 @@ class RateLimiter {
   check(clientId, options = {}) {
     const {
       windowMs = 60000, // 1 minute
-      maxRequests = 10,
-      skipSuccessfulRequests = false,
-      skipFailedRequests = false
+      maxRequests = 10
     } = options;
 
     const now = Date.now();
