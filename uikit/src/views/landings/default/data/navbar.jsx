@@ -9,7 +9,7 @@ const linkProps = { target: '_blank', rel: 'noopener noreferrer' };
 export const navbar = {
   customization: true,
   secondaryBtn: {
-    children: <SvgIcon name="tabler-brand-github" color="primary.main" size={18} />,
+    children: <SvgIcon name="tabler-login" color="primary.main" size={18} />,
     href: FREEBIES_URL,
     ...linkProps,
     sx: { minWidth: 40, width: 40, height: 40, p: 0 }
