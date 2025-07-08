@@ -22,6 +22,7 @@ model User {
   subscriptions Subscription[]
   posts         Post[]
 
+  @@index([createdAt])
   @@map("users")
 }
 
@@ -38,6 +39,10 @@ model Subscription {
   userId String?
   user   User?   @relation(fields: [userId], references: [id])
 
+  @@index([userId])
+  @@index([createdAt])
+  @@index([isActive])
+  @@index([source])
   @@map("subscriptions")
 }
 
@@ -53,6 +58,10 @@ model Post {
   authorId String
   author   User   @relation(fields: [authorId], references: [id])
 
+  @@index([authorId])
+  @@index([published])
+  @@index([createdAt])
+  @@index([authorId, published])
   @@map("posts")
 }
 
@@ -66,6 +75,10 @@ model Contact {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  @@index([email])
+  @@index([isRead])
+  @@index([createdAt])
+  @@index([isRead, createdAt])
   @@map("contacts")
 }
 
@@ -78,5 +91,7 @@ model Analytics {
   updatedAt  DateTime @updatedAt
 
   @@unique([page])
+  @@index([createdAt])
+  @@index([views])
   @@map("analytics")
 }
