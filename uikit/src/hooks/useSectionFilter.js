@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { sections } from '@/data/sectionsData';
 
 export default function useSectionFilter() {
