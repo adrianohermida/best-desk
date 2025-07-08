@@ -12,7 +12,7 @@ export default async function BuilderPage(props) {
     const urlPath = '/builder/' + (params?.slug?.join('/') || '');
     return (
       <div style={{ padding: '2rem', textAlign: 'center' }}>
-        <h1>⚙�� Builder.io Configuration Required</h1>
+        <h1>⚙️ Builder.io Configuration Required</h1>
         <div style={{ padding: '1rem', backgroundColor: '#fef3c7', borderRadius: '8px', marginTop: '2rem' }}>
           <h3>🔑 API Key Not Configured</h3>
           <p>To use Builder.io features, you need to:</p>
@@ -36,7 +36,7 @@ export default async function BuilderPage(props) {
   const { initializeNodeRuntime } = await import('@builder.io/sdk-react/node/init');
   initializeNodeRuntime();
 
-  const urlPath = '/builder/' + (props.params?.slug?.join('/') || '');
+  const urlPath = '/builder/' + (params?.slug?.join('/') || '');
 
   const content = await fetchOneEntry({
     options: { ...BUILDER_CONFIG.defaultOptions, ...props.searchParams },
