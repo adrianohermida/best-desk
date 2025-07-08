@@ -11,9 +11,11 @@ export default function TestBuilderPage() {
         <ul style={{ textAlign: 'left', maxWidth: '500px', margin: '0 auto' }}>
           <li>✅ SDK Installed: @builder.io/sdk-react</li>
           <li>✅ Environment Variable: NEXT_PUBLIC_BUILDER_API_KEY</li>
-          <li>✅ Catch-all Route: [[...slug]]/page.tsx</li>
-          <li>✅ Component Registry: builder-registry.ts</li>
-          <li>✅ Configuration: lib/builder/config.ts</li>
+          <li>✅ Builder.io Route: builder/[[...slug]]/page.jsx</li>
+          <li>✅ Component Registry: builder-registry.js</li>
+          <li>✅ Configuration: lib/builder/config.js</li>
+          <li>✅ Route Conflicts: Fixed (dedicated namespace)</li>
+          <li>✅ TypeScript Issues: Fixed (converted to JavaScript)</li>
         </ul>
       </div>
 
