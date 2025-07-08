@@ -1,251 +1,147 @@
 'use client';
 import PropTypes from 'prop-types';
-
-import { Fragment, useCallback, useEffect, useId, useRef, useState } from 'react';
-
-// @next
-// import NextLink from 'next/link';
+import { Fragment, useCallback, useId, useState } from 'react';
 
 // @mui
 import { alpha, useTheme } from '@mui/material/styles';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
 import NoSsr from '@mui/material/NoSsr';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 
 // @project
-import SvgIcon from './SvgIcon';
-
+import SimulatorControls from './simulator/SimulatorControls';
+import useSimulatorResize from '@/hooks/useSimulatorResize';
 import { getBackgroundDots } from '@/utils/getBackgroundDots';
 import Loader from '@/utils/Loader';
+import { viewportData, DEFAULT_SCREEN_SIZE } from './simulator/SimulatorData';
 
-/***************************  SIMULATOR - DATA  ***************************/
+/***************************  SIMULATOR - MAIN COMPONENT  ***************************/
 
-const viewportData = {
-  desktop: { width: '100%', icon: 'tabler-device-imac' },
-  tablet: { width: 850, icon: 'tabler-device-tablet' },
-  mobile: { width: 425, icon: 'tabler-device-mobile' }
-};
-
-/***************************  SIMULATOR - SCREEN BUTTONS  ***************************/
-
-function ScreenButton({ icon, screen, screenSize, onScreenChange }) {
-  const activeEffect = screenSize === screen ? 'grey.300' : 'grey.100';
-
-  return (
-    <IconButton
-      sx={{
-        width: 36,
-        height: 36,
-        bgcolor: activeEffect,
-        border: '1px solid',
-        borderColor: screenSize === screen ? 'grey.600' : 'grey.300',
-        '&.MuiIconButton-root:hover': { borderColor: 'grey.600', bgcolor: activeEffect }
-      }}
-      onClick={() => onScreenChange(screen)}
-      aria-label={screen}
-    >
-      <SvgIcon {...(typeof icon === 'string' ? { name: icon } : { ...icon })} size={20} color="text.primary" />
-    </IconButton>
-  );
-}
-
-/***************************  COMMON - SIMULATOR  ***************************/
-
-export default function Simulator({ src, defaultHeight }) {
+function Simulator({ src, height = 800, ...rest }) {
   const theme = useTheme();
-  const iframeEl = useRef(null);
-  const minimumHeight = 450;
-  const simulatorID = useId();
+  const uniqueId = useId();
+  const [screenSize, setScreenSize] = useState(DEFAULT_SCREEN_SIZE);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [screenSize, setScreenSize] = useState('desktop');
-  const [viewportHeight, setViewportHeight] = useState(minimumHeight);
-  const [observerEvent, setObserverEvent] = useState(false);
-  const [iframeObserverEvent, setIframeObserverEvent] = useState(false);
+  const { height: dynamicHeight, frameRef, handleIframeLoad, updateHeight } = useSimulatorResize(height);
 
-  const boxRadius = 3;
+  const handleScreenChange = useCallback(
+    (newScreenSize) => {
+      setScreenSize(newScreenSize);
+      // Small delay to allow screen resize, then update height
+      setTimeout(updateHeight, 300);
+    },
+    [updateHeight]
+  );
 
-  // Set iframe height based on its content
-  const setIframeHeight = (type) => {
-    const iframe = iframeEl.current;
-    if (iframe && iframe.contentWindow?.document) {
-      const contentHeight = iframe.contentWindow.document.documentElement?.scrollHeight;
-      const contentOffsetHeight = iframe.contentWindow.document.documentElement?.offsetHeight;
-      setViewportHeight(
-        type === 'screenChange'
-          ? contentOffsetHeight
-          : type === 'load'
-            ? contentHeight > contentOffsetHeight
-              ? contentOffsetHeight > minimumHeight
-                ? contentOffsetHeight
-                : minimumHeight
-              : contentHeight
-            : contentHeight
-      );
+  const handleRefresh = useCallback(() => {
+    if (frameRef.current) {
+      setIsLoading(true);
+      frameRef.current.src = frameRef.current.src;
     }
-  };
+  }, [frameRef]);
 
-  useEffect(() => {
-    const iframeDocument = iframeEl?.current?.contentWindow?.document;
+  const handleLoadComplete = useCallback(() => {
+    setIsLoading(false);
+    handleIframeLoad();
+  }, [handleIframeLoad]);
 
-    if (iframeDocument && iframeDocument.documentElement && typeof ResizeObserver !== 'undefined') {
-      const resizeObserver = new ResizeObserver(() => setIframeHeight());
-
-      try {
-        resizeObserver.observe(iframeDocument.documentElement);
-      } catch (error) {
-        console.error('ResizeObserver error:', error);
-      }
-
-      // Cleanup function to disconnect the observer
-      return () => resizeObserver.disconnect();
-    }
-  }, [observerEvent]);
-
-  const handleLoad = useCallback(() => {
-    setTimeout(() => {
-      setIframeHeight('load');
-      setTimeout(() => {
-        setObserverEvent(!observerEvent);
-      }, 500);
-    }, 500);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    if (iframeObserverEvent) {
-      const iframe = iframeEl.current;
-      if (iframe) {
-        iframe.addEventListener('load', handleLoad);
-
-        return () => {
-          iframe.removeEventListener('load', handleLoad);
-        };
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [iframeObserverEvent]);
-
-  // Handle screen size change
-  const onScreenChange = (screen) => {
-    if (screen === screenSize) {
-      return;
-    }
-
-    const values = Object.keys(viewportData);
-    if (values.indexOf(screen) === -1) {
-      return;
-    }
-
-    setScreenSize(screen);
-
-    // wait for the iframe to resized
-    setTimeout(() => setIframeHeight('screenChange'), 100);
-  };
-
-  // const onSelectionChange = (item: { title: string; value: string }) => {
-  //   console.log(item);
-  // };
-
-  // const onThemeChange = (item: { name: string; value: string; color: string }) => {
-  //   console.log(item);
-  // };
+  const currentViewport = viewportData[screenSize];
+  const iframeWidth = currentViewport.width;
 
   return (
-    <Box
-      sx={{
-        border: '1px solid',
-        borderColor: 'grey.300',
-        borderRadius: boxRadius,
-        ...(screenSize != 'desktop' && {
-          background: getBackgroundDots(theme.palette.grey[400], 60, 20),
-          bgcolor: alpha(theme.palette.grey[50], 0.5)
-        })
-      }}
-    >
-      <Stack
-        direction="row"
+    <NoSsr>
+      <Box
+        {...rest}
         sx={{
-          justifyContent: 'space-between',
-          p: 2,
           border: '1px solid',
           borderColor: 'grey.300',
-          borderRadius: boxRadius,
-          mt: '-1px',
-          mx: '-1px',
-          bgcolor: 'grey.50'
+          borderRadius: 1,
+          overflow: 'hidden',
+          bgcolor: 'background.paper',
+          ...rest.sx
         }}
       >
-        <Stack direction="row" sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
-          {Object.keys(viewportData).map((item, index) => (
-            <Fragment key={index}>
-              <ScreenButton icon={viewportData[item].icon} screen={item} screenSize={screenSize} onScreenChange={onScreenChange} />
-            </Fragment>
-          ))}
-        </Stack>
-        <Stack direction="row" sx={{ gap: 1, flexWrap: 'wrap' }}>
-          {/* <SelectBox options={typographyOptions} defaultSelection="Inter" onChange={onSelectionChange} /> */}
-          {/*  <ThemeSelector defaultTheme={Themes.THEME_CRM} onChange={onThemeChange} />
-          <IconButton sx={btnStyle} rel="noopener noreferrer" aria-label="mode" onClick={() => setMode(mode === ThemeMode.LIGHT ? ThemeMode.DARK : ThemeMode.LIGHT)}>
-            {mode === ThemeMode.LIGHT ? <SvgIcon name="tabler-moon" {...iconProps} /> : <SvgIcon name="tabler-sun" {...iconProps} />}
-          </IconButton> */}
-          {/* <IconButton component={NextLink} href={src} target="_blank" rel="noopener noreferrer" sx={btnStyle} rel="noopener noreferrer" aria-label="open section">
-            <SvgIcon name="tabler-arrow-up-right" size={20} color="text.primary" />
-          </IconButton> */}
+        {/* Simulator Controls */}
+        <SimulatorControls screenSize={screenSize} onScreenChange={handleScreenChange} onRefresh={handleRefresh} />
 
-          <Button
-            endIcon={<SvgIcon name="tabler-arrow-up-right" size={20} color="text.primary" />}
-            href={src}
-            sx={{ color: 'text.primary', px: 1.5, py: 1 }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Preview
-          </Button>
-        </Stack>
-      </Stack>
-      <Stack direction="row" sx={{ justifyContent: 'center' }}>
-        <NoSsr>
+        {/* Iframe Container */}
+        <Box
+          sx={{
+            position: 'relative',
+            height: dynamicHeight,
+            overflow: 'hidden',
+            background: `radial-gradient(circle at 20% 50%, ${alpha(theme.palette.primary.lighter, 0.2)} 0%, transparent 50%), radial-gradient(circle at 80% 20%, ${alpha(theme.palette.secondary.lighter, 0.2)} 0%, transparent 50%), ${getBackgroundDots()}`
+          }}
+        >
+          {/* Loading Overlay */}
+          {isLoading && (
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                bgcolor: alpha(theme.palette.background.default, 0.8),
+                zIndex: 2
+              }}
+            >
+              <Loader />
+            </Box>
+          )}
+
+          {/* Iframe Wrapper */}
           <Stack
             sx={{
-              maxWidth: viewportData[screenSize].width,
-              width: 1,
-              height: 1,
-              ...(screenSize != 'desktop' && {
-                boxShadow: `5px 0 4px -4px ${theme.palette.grey[300]}, -5px 0 4px -4px ${theme.palette.grey[300]}`
-              })
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100%',
+              p: 2
             }}
           >
-            <iframe
-              ref={iframeEl}
-              id={simulatorID}
-              srcDoc={Loader()}
-              onLoad={(event) => {
-                const iframe = event.currentTarget;
-                if (iframe) {
-                  iframe.removeAttribute('srcdoc');
-                  if (!defaultHeight) {
-                    setIframeObserverEvent(!iframeObserverEvent);
-                  }
-                }
+            <Box
+              sx={{
+                width: iframeWidth,
+                maxWidth: '100%',
+                height: '100%',
+                border: screenSize !== 'desktop' ? '1px solid' : 'none',
+                borderColor: 'grey.300',
+                borderRadius: screenSize !== 'desktop' ? 1 : 0,
+                overflow: 'hidden',
+                bgcolor: 'background.paper',
+                boxShadow: screenSize !== 'desktop' ? 2 : 'none'
               }}
-              style={{
-                width: '100%',
-                height: defaultHeight || viewportHeight || '100%',
-                border: 'none',
-                ...(screenSize === 'desktop' && { borderBottomLeftRadius: boxRadius * 4, borderBottomRightRadius: boxRadius * 4 })
-              }}
-              src={src}
-              title="section-simulator"
-            />
+            >
+              <Box
+                key={`${uniqueId}-${screenSize}`}
+                component="iframe"
+                ref={frameRef}
+                src={src}
+                onLoad={handleLoadComplete}
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  border: 'none',
+                  display: 'block'
+                }}
+                title={`Simulator ${screenSize} view`}
+                loading="lazy"
+              />
+            </Box>
           </Stack>
-        </NoSsr>
-      </Stack>
-    </Box>
+        </Box>
+      </Box>
+    </NoSsr>
   );
 }
 
-ScreenButton.propTypes = { icon: PropTypes.any, screen: PropTypes.string, screenSize: PropTypes.string, onScreenChange: PropTypes.func };
+Simulator.propTypes = {
+  src: PropTypes.string.isRequired,
+  height: PropTypes.number
+};
 
-Simulator.propTypes = { src: PropTypes.string, defaultHeight: PropTypes.number };
+export default Simulator;
