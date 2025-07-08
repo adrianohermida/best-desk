@@ -3,12 +3,25 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 
 // @project
+const ScrollFab = dynamic(() => import('@/components/ScrollFab'));
+const ThemeAI = dynamic(() => import('@/views/landings/ai/theme'));
 const MainLayout = dynamic(() => import('@/views/landings/default/layout'));
 
-/***************************  LAYOUT - DEFAULT  ***************************/
+/***************************  LAYOUT - AI  ***************************/
 
-export default function DefaultLayout({ children }) {
-  return <MainLayout>{children}</MainLayout>;
+export default function AI({ children }) {
+  return (
+    <ThemeAI>
+      <MainLayout>
+        <>
+          {children}
+
+          {/* scroll to top section */}
+          <ScrollFab />
+        </>
+      </MainLayout>
+    </ThemeAI>
+  );
 }
 
-DefaultLayout.propTypes = { children: PropTypes.any };
+AI.propTypes = { children: PropTypes.any };
