@@ -46,12 +46,41 @@ export default function AdminSidebar() {
   const [expandedItems, setExpandedItems] = useState({});
 
   const navigationItems = [
+    // Manage Group (Original Template)
     {
       id: 'dashboard',
       label: 'Dashboard',
       icon: IconDashboard,
       path: '/admin/dashboard'
     },
+    {
+      id: 'analytics',
+      label: 'Analytics',
+      icon: IconReport,
+      path: '/admin/analytics'
+    },
+
+    // UI Elements Group (Original Template)
+    {
+      id: 'components',
+      label: 'Components',
+      icon: IconDatabase,
+      children: [
+        { id: 'color', label: 'Color', path: '/admin/utils/color' },
+        { id: 'shadow', label: 'Shadow', path: '/admin/utils/shadow' },
+        { id: 'typography', label: 'Typography', path: '/admin/utils/typography' }
+      ]
+    },
+
+    // Pages Group (Original Template)
+    {
+      id: 'sample-page',
+      label: 'Sample Page',
+      icon: IconFileText,
+      path: '/admin/sample-page'
+    },
+
+    // Legal Features (Custom Implementation)
     {
       id: 'cases',
       label: 'Cases',
