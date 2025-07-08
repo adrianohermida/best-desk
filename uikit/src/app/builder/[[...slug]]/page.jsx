@@ -3,7 +3,31 @@ import { BUILDER_CONFIG, validateBuilderConfig } from '@/lib/builder/config';
 
 export default async function BuilderPage(props) {
   // Validate Builder.io configuration
-  validateBuilderConfig();
+  const isConfigured = validateBuilderConfig();
+
+  if (!isConfigured) {
+    const urlPath = '/builder/' + (props.params?.slug?.join('/') || '');
+    return (
+      <div style={{ padding: '2rem', textAlign: 'center' }}>
+        <h1>⚙️ Builder.io Configuration Required</h1>
+        <div style={{ padding: '1rem', backgroundColor: '#fef3c7', borderRadius: '8px', marginTop: '2rem' }}>
+          <h3>🔑 API Key Not Configured</h3>
+          <p>To use Builder.io features, you need to:</p>
+          <ol style={{ textAlign: 'left', maxWidth: '500px', margin: '0 auto' }}>
+            <li>
+              Get your API key from{' '}
+              <a href="https://builder.io" target="_blank">
+                builder.io
+              </a>
+            </li>
+            <li>Replace "your-builder-api-key-here" in the .env file</li>
+            <li>Restart the development server</li>
+          </ol>
+        </div>
+        <p style={{ marginTop: '2rem', fontSize: '0.9rem', color: '#666' }}>Current path: {urlPath}</p>
+      </div>
+    );
+  }
 
   // NOTE: This import MUST be inside the Page component
   const { initializeNodeRuntime } = await import('@builder.io/sdk-react/node/init');
