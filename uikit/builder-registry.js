@@ -57,6 +57,8 @@ const TermsCondition = dynamic(() => import('./src/blocks/TermsCondition').then(
 
 const Typography = dynamic(() => import('./src/blocks/Typography').then((mod) => ({ default: mod.default })));
 
+const ThemePicker = dynamic(() => import('./src/components/ThemePicker').then((mod) => ({ default: mod.BuilderThemePicker })));
+
 // Base registry for Builder.io components
 export const customComponents = [
   {
