@@ -1,7 +1,5 @@
-// @third-party
-import { merge } from 'lodash-es';
+/***************************  DEFAULT / AI THEME - COMPONENTS OVERRIDES  ***************************/
 
-// @project
 import Accordion from './Accordion';
 import AccordionSummary from './AccordionSummary';
 import Button from './Button';
@@ -13,19 +11,17 @@ import OutlinedInput from './OutlinedInput';
 import Switch from './Switch';
 import Tab from './Tab';
 
-/***************************  OVERRIDES - MAIN  ***************************/
-
-export default function ComponentsOverrides(theme) {
-  return merge(
-    Accordion(),
-    AccordionSummary(),
+export default function componentsOverride(theme) {
+  return Object.assign(
+    Accordion(theme),
+    AccordionSummary(theme),
     Button(theme),
-    Chip(),
-    Container(),
+    Chip(theme),
+    Container(theme),
     IconButton(theme),
     Link(theme),
     OutlinedInput(theme),
     Switch(theme),
-    Tab()
+    Tab(theme)
   );
 }
