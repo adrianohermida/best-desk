@@ -10,6 +10,12 @@ import { ctaComponents } from './components/cta';
 import { socialProofComponents } from './components/social-proof';
 import { commerceComponents } from './components/commerce';
 import { templateComponents } from './components/templates';
+import { integrationComponents } from './components/integration';
+import { megaMenuComponents } from './components/mega-menu';
+import { errorPageComponents } from './components/error-pages';
+import { blogComponents } from './components/blog';
+import { authComponents } from './components/auth';
+import { utilityComponents } from './components/utilities';
 
 /***************************  REGISTRY UTILITIES  ***************************/
 
