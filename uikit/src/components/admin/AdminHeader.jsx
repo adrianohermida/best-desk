@@ -1,6 +1,7 @@
 'use client';
 
-import { AppBar, Toolbar, Typography, Box, IconButton, Badge, Avatar, Menu, MenuItem, Divider, InputBase, alpha } from '@mui/material';
+import { AppBar, Toolbar, Typography, Box, IconButton, Badge, Avatar, Menu, MenuItem, Divider, InputBase } from '@mui/material';
+import { alpha } from '@mui/material/styles';
 import { IconBell, IconSearch, IconUser, IconSettings, IconLogout, IconMenu2 } from '@tabler/icons-react';
 import { useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
