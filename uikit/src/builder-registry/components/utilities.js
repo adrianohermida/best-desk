@@ -1,6 +1,6 @@
 // Utility Components for Builder.io Registry
 
-import Typography from '@/blocks/Typography';
+import TypographyPage from '@/blocks/Typography';
 
 /***************************  UTILITY COMPONENTS  ***************************/
 
