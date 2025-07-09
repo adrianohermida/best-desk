@@ -156,8 +156,7 @@ const nextConfig = {
   // Strict mode
   reactStrictMode: true,
 
-  // SWC minification
-  swcMinify: true,
+  // SWC minification é padrão no Next.js 15
 
   // Trailing slash
   trailingSlash: false,
