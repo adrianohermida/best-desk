@@ -18,7 +18,7 @@ import {
   Tabs,
   Tab
 } from '@mui/material';
-import { IconUpload, IconSave, IconShield, IconBell, IconUser, IconSettings, IconDatabase } from '@tabler/icons-react';
+import { IconUpload, IconDeviceFloppy, IconShield, IconBell, IconUser, IconSettings, IconDatabase } from '@tabler/icons-react';
 import PageHeader from '@/components/admin/PageHeader';
 
 function TabPanel({ children, value, index, ...other }) {
