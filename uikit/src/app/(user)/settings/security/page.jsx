@@ -19,7 +19,7 @@ import {
   Divider,
   Alert
 } from '@mui/material';
-import { IconShield, IconKey, IconSmartphone, IconDevices, IconLock, IconEye, IconTrash, IconPlus } from '@tabler/icons-react';
+import { IconShield, IconKey, IconDevices, IconLock, IconEye, IconTrash, IconPlus } from '@tabler/icons-react';
 
 const mockSecurityData = {
   lastPasswordChange: '2023-12-15',
