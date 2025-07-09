@@ -5,7 +5,7 @@ import { Box, Container, Grid, Card, CardContent, Typography, TextField, Button,
 import { IconUser, IconSettings, IconSecurity } from '@tabler/icons-react';
 
 // @project
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@/hooks/useAuth';
 
 /***************************  PROFILE VIEW  ***************************/
 
