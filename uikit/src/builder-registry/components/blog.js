@@ -6,13 +6,9 @@
 /***************************  BLOG COMPONENTS  ***************************/
 
 export const blogComponents = [
-  // Placeholder for blog components - will be populated when we find the actual blog blocks
-  // Examples of what we might include:
-  // - BlogList (blog post listing)
-  // - BlogPost (single blog post)
-  // - BlogCard (blog post card)
-  // - BlogCategories (category navigation)
-  // - BlogSearch (search functionality)
+  // Note: Blog components (blog1-blog7) are premium/pro components
+  // They are referenced in uikit/src/views/sections/Blog.jsx but not available in free version
+  // The free version contains section wrappers that showcase these premium components
 ];
 
 // Note: This file needs to be updated with actual blog components from the blocks directory
