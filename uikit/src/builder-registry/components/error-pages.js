@@ -67,7 +67,7 @@ export const errorPageComponents = [
     image: '/assets/images/builder/error404-preview.jpg'
   },
   {
-    component: Error500,
+    component: Error500Page,
     name: 'Error500',
     category: 'utilities',
     description: '500 Internal Server Error page with helpful messaging and support options',
