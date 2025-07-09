@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 // @project
 import ContainerWrapper from '@/components/ContainerWrapper';
 import GraphicsImage from '@/components/GraphicsImage';
-import { LazySlider } from '@/components/LazySlider';
+import LazySliderSimple from '@/components/LazySliderSimple';
 import { LazyMotionDiv } from '@/components/LazyMotion';
 import { LazyWrapper } from '@/components/LazyWrapper';
 
