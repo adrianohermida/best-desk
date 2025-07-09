@@ -6,7 +6,7 @@ import TypographyPage from '@/blocks/Typography';
 
 export const utilityComponents = [
   {
-    component: Typography,
+    component: TypographyPage,
     name: 'Typography',
     category: 'utilities',
     description: 'Typography showcase component with various text styles and formatting options',
