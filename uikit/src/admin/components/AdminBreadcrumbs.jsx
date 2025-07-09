@@ -13,16 +13,17 @@ import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
 import Typography from '@mui/material/Typography';
 
 // @project
-import { generateFocusVisibleStyles } from '@/utils/CommonFocusStyle';
-import menuItems from '@/admin/data/menu';
+import { APP_DEFAULT_PATH } from '../config';
+import menuItems from '../data/menu';
+import { generateFocusStyle } from '../utils/generateFocusStyle';
 
 // @assets
 import { IconChevronRight } from '@tabler/icons-react';
 
 // @data
-const homeBreadcrumb = { title: 'Dashboard', url: '/admin/dashboard' };
+const homeBreadcrumb = { title: 'Home', url: APP_DEFAULT_PATH };
 
-/***************************  ADMIN BREADCRUMBS  ***************************/
+/***************************  BREADCRUMBS  ***************************/
 
 export default function AdminBreadcrumbs({ data }) {
   const theme = useTheme();
@@ -43,6 +44,7 @@ export default function AdminBreadcrumbs({ data }) {
         }
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, location]);
 
   const dataHandler = (data) => {
@@ -57,21 +59,24 @@ export default function AdminBreadcrumbs({ data }) {
 
   function findParentElements(navItems, targetUrl, parents = []) {
     for (const item of navItems) {
+      // Add the current item to the parents array
       const newParents = [...parents, item];
 
+      // Check if the current item matches the target URL
       if (item.url && targetUrl.includes(item.url)) {
-        return newParents;
+        return newParents; // Return the array of parent elements
       }
 
+      // If the item has children, recurse into them
       if (item.children) {
         const result = findParentElements(item.children, targetUrl, newParents);
         if (result) {
-          return result;
+          return result; // Return the result if found in children
         }
       }
     }
 
-    return null;
+    return null; // Return null if no match is found
   }
 
   return (
@@ -86,7 +91,7 @@ export default function AdminBreadcrumbs({ data }) {
               color: 'grey.700',
               textDecoration: 'none',
               ...(item.url && { cursor: 'pointer', ':hover': { color: 'primary.main' } }),
-              ':focus-visible': { outline: 'none', borderRadius: 0.25, ...generateFocusVisibleStyles(theme.palette.primary.main) }
+              ':focus-visible': { outline: 'none', borderRadius: 0.25, ...generateFocusStyle(theme.palette.primary.main) }
             }}
             key={index}
           >
