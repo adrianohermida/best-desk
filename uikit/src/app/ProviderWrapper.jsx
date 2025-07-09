@@ -9,6 +9,7 @@ import ThemeProvider from '@/components/ThemeProvider';
 import BuilderProvider from '@/components/BuilderProvider';
 import { ConfigProvider } from '@/contexts/ConfigContext';
 import { AppProvider } from '@/contexts/AppContext';
+import { AuthProvider } from '@/contexts/AuthContext';
 
 /***************************  COMMON - CONFIG, THEME  ***************************/
 
