@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 // @project
 import Loader from '@/components/Loader';
 import ThemeProvider from '@/components/ThemeProvider';
+import BuilderProvider from '@/components/BuilderProvider';
 import { ConfigProvider } from '@/contexts/ConfigContext';
 
 /***************************  COMMON - CONFIG, THEME  ***************************/
@@ -27,7 +28,9 @@ export default function ProviderWrapper({ children }) {
   return (
     <ConfigProvider>
       <ThemeProvider>
-        <main>{loader ? <Loader /> : children}</main>
+        <BuilderProvider>
+          <main>{loader ? <Loader /> : children}</main>
+        </BuilderProvider>
       </ThemeProvider>
     </ConfigProvider>
   );
