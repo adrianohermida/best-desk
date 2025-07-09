@@ -9,6 +9,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 // @project
 import ProviderWrapper from './ProviderWrapper';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import { mainMetadata } from '@/metadata';
 
 const gaId = process.env.NEXT_PUBLIC_ANALYTICS_ID || '';
