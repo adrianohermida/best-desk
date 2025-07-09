@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
 // @project
-import OptimizedLoader from '@/components/OptimizedLoader';
+import SimpleOptimizedLoader from '@/components/SimpleOptimizedLoader';
 import ThemeProvider from '@/components/ThemeProvider';
 import { ConfigProvider } from '@/contexts/ConfigContext';
 import { AuthProvider } from '@/contexts/AuthContext';
-import usePageLoadOptimization from '@/hooks/usePageLoadOptimization';
 
 /***************************  COMMON - CONFIG, THEME  ***************************/
 
