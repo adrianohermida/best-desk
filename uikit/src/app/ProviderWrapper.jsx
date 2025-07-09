@@ -8,8 +8,6 @@ import Loader from '@/components/Loader';
 import ThemeProvider from '@/components/ThemeProvider';
 import { ConfigProvider } from '@/contexts/ConfigContext';
 import { AuthProvider } from '@/contexts/AuthContext';
-import { initializePreloading } from '@/utils/routePreloader';
-import { initializeBundleOptimization } from '@/utils/bundleOptimizer';
 
 /***************************  COMMON - CONFIG, THEME  ***************************/
 
