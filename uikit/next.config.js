@@ -3,9 +3,7 @@ const nextConfig = {
   // Experimental features para melhor performance
   experimental: {
     // Otimizações CSS
-    optimizeCss: true,
-    // Lazy loading de components
-    serverComponentsExternalPackages: ['@mui/material']
+    optimizeCss: true
   },
 
   // Configuração de build otimizada
