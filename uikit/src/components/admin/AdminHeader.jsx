@@ -9,10 +9,21 @@ import { useAuth } from '@/hooks/useAuth';
 import { useAppState } from '@/hooks/useAppState';
 
 export default function AdminHeader() {
+  const router = useRouter();
   const [anchorEl, setAnchorEl] = useState(null);
   const [notificationAnchor, setNotificationAnchor] = useState(null);
   const { user, logout } = useAuth();
   const { toggleSidebar } = useAppState();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      router.push('/admin/auth/login');
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+    handleMenuClose();
+  };
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
