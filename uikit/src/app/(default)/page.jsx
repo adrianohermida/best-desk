@@ -1,18 +1,20 @@
 // @next
 import dynamic from 'next/dynamic';
 
-// @project - Versão otimizada para melhor carregamento
-const Main = dynamic(() => import('@/views/landings/default/OptimizedMain'), {
+// @project - Versão rápida para melhor carregamento
+const Main = dynamic(() => import('@/views/landings/default/FastMain'), {
   loading: () => (
     <div
       style={{
-        height: '100vh',
+        height: '200px',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        fontSize: '14px',
+        color: '#666'
       }}
     >
-      Loading...
+      Loading page...
     </div>
   )
 });
