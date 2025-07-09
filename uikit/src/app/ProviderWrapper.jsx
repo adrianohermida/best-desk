@@ -8,6 +8,7 @@ import Loader from '@/components/Loader';
 import ThemeProvider from '@/components/ThemeProvider';
 import BuilderProvider from '@/components/BuilderProvider';
 import { ConfigProvider } from '@/contexts/ConfigContext';
+import { AppProvider } from '@/contexts/AppContext';
 
 /***************************  COMMON - CONFIG, THEME  ***************************/
 
@@ -27,11 +28,13 @@ export default function ProviderWrapper({ children }) {
 
   return (
     <ConfigProvider>
-      <ThemeProvider>
-        <BuilderProvider>
-          <main>{loader ? <Loader /> : children}</main>
-        </BuilderProvider>
-      </ThemeProvider>
+      <AppProvider>
+        <ThemeProvider>
+          <BuilderProvider>
+            <main>{loader ? <Loader /> : children}</main>
+          </BuilderProvider>
+        </ThemeProvider>
+      </AppProvider>
     </ConfigProvider>
   );
 }
