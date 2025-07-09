@@ -14,10 +14,24 @@ import usePageLoadOptimization from '@/hooks/usePageLoadOptimization';
 
 export default function ProviderWrapper({ children }) {
   const [loader, setLoader] = useState(true);
+  const { isLoading, criticalResourcesLoaded } = usePageLoadOptimization({
+    enablePreload: true,
+    enablePrefetch: true,
+    enableResourceHints: true,
+    enablePerformanceMonitoring: true
+  });
 
   useEffect(() => {
-    setLoader(false);
+    // Reduzir tempo de loader inicial
+    const timer = setTimeout(() => {
+      setLoader(false);
+    }, 500); // Reduzido de padrão para 500ms
+
+    return () => clearTimeout(timer);
   }, []);
+
+  // Mostrar loader enquanto recursos críticos não carregaram
+  const shouldShowLoader = loader || (isLoading && !criticalResourcesLoaded);
 
   /**
    * A loader is needed here to initialize the configuration from localStorage and set the default theme.
