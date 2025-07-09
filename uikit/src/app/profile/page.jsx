@@ -3,7 +3,9 @@ import dynamic from 'next/dynamic';
 // @project
 import AuthGuard from '@/guards/AuthGuard';
 
-const ProfileView = dynamic(() => import('@/views/profile'));
+const ProfileView = dynamic(() => import('@/views/profile'), {
+  loading: () => <div>Loading...</div>
+});
 
 /***************************  PAGE - PROFILE  ***************************/
 
