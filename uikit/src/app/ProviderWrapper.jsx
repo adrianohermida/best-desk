@@ -29,7 +29,7 @@ export default function ProviderWrapper({ children }) {
     <ConfigProvider>
       <ThemeProvider>
         <AuthProvider>
-          <main>{loader ? <Loader /> : children}</main>
+          <main>{loader ? <OptimizedLoader fullHeight showLogo /> : children}</main>
         </AuthProvider>
       </ThemeProvider>
     </ConfigProvider>
