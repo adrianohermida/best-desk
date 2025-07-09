@@ -1,6 +1,6 @@
 // Error Page Components for Builder.io Registry
 
-import { Error404, Error500 } from '@/blocks/maintenance';
+import { Error404Page, Error500Page } from '@/blocks/maintenance';
 
 /***************************  ERROR PAGE COMPONENTS  ***************************/
 
