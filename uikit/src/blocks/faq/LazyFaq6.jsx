@@ -88,7 +88,7 @@ export default function LazyFaq6({ heading, caption, defaultExpanded, faqList, g
           {categories && categories.length > 0 && (
             <LazyWrapper height={80} rootMargin="100px">
               <Stack sx={{ ...slickStyle }}>
-                                <LazySliderSimple settings={settings} fallbackHeight={60}>
+                <LazySliderSimple settings={settings} fallbackHeight={60}>
                   <div>
                     <Button
                       variant={activeTopic === '' ? 'contained' : 'outlined'}
@@ -119,7 +119,7 @@ export default function LazyFaq6({ heading, caption, defaultExpanded, faqList, g
                       </Button>
                     </div>
                   ))}
-                </LazySlider>
+                </LazySliderSimple>
               </Stack>
             </LazyWrapper>
           )}
@@ -190,17 +190,9 @@ export default function LazyFaq6({ heading, caption, defaultExpanded, faqList, g
                 <Typography variant="h6" color="text.primary">
                   {getInTouch.title}
                 </Typography>
-                <Typography color="text.secondary">
-                  {getInTouch.description}
-                </Typography>
+                <Typography color="text.secondary">{getInTouch.description}</Typography>
                 <ButtonAnimationWrapper>
-                  <Button
-                    component={NextLink}
-                    href={getInTouch.primaryBtn?.link || '#'}
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                  >
+                  <Button component={NextLink} href={getInTouch.primaryBtn?.link || '#'} variant="contained" color="primary" size="large">
                     {getInTouch.primaryBtn?.children}
                   </Button>
                 </ButtonAnimationWrapper>
