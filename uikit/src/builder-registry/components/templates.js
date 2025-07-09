@@ -3,7 +3,8 @@ import dynamic from 'next/dynamic';
 // Dynamic imports for Template components
 const SaasStartupTemplate = dynamic(() => import('../../templates/landing/SaasStartup').then((mod) => ({ default: mod.default })));
 const CorporateTemplate = dynamic(() => import('../../templates/business/CorporateTemplate').then((mod) => ({ default: mod.default })));
-const ThemePicker = dynamic(() => import('../../components/ThemePicker').then((mod) => ({ default: mod.BuilderThemePicker })));
+// TODO: Implement ThemePicker component
+// const ThemePicker = dynamic(() => import('../../components/ThemePicker').then((mod) => ({ default: mod.BuilderThemePicker })));
 
 /***************************  TEMPLATE COMPONENTS REGISTRY  ***************************/
 
@@ -103,44 +104,15 @@ export const templateComponents = [
       }
     ],
     canHaveChildren: false
-  },
-  {
-    component: ThemePicker,
-    name: 'ThemePicker',
-    category: 'tools',
-    inputs: [
-      {
-        name: 'variant',
-        type: 'string',
-        enum: ['full', 'compact'],
-        defaultValue: 'full'
-      },
-      {
-        name: 'themeVariant',
-        type: 'string',
-        enum: ['light', 'dark', 'auto'],
-        defaultValue: 'light'
-      },
-      {
-        name: 'themeStyle',
-        type: 'string',
-        enum: ['minimal', 'bold', 'elegant', 'modern', 'classic'],
-        defaultValue: 'modern'
-      },
-      {
-        name: 'colorScheme',
-        type: 'string',
-        enum: ['default', 'blue', 'green', 'purple', 'orange', 'red'],
-        defaultValue: 'default'
-      },
-      {
-        name: 'animations',
-        type: 'boolean',
-        defaultValue: true
-      }
-    ],
-    canHaveChildren: false
   }
+  // TODO: Add ThemePicker when implemented
+  // {
+  //   component: ThemePicker,
+  //   name: 'ThemePicker',
+  //   category: 'tools',
+  //   inputs: [...],
+  //   canHaveChildren: false
+  // }
 ];
 
 export default templateComponents;
