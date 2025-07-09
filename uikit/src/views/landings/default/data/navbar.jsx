@@ -5,22 +5,20 @@ import { SECTION_PATH, PAGE_PATH, DOCS_URL } from '@/path';
 
 /***************************  DEFAULT - NAVBAR  ***************************/
 
-const linkProps = { target: '_blank', rel: 'noopener noreferrer' };
 export const navbar = {
   customization: true,
   secondaryBtn: {
     children: <SvgIcon name="tabler-login" color="primary.main" size={18} />,
-    href: FREEBIES_URL,
-    ...linkProps,
+    href: PAGE_PATH.login,
     sx: { minWidth: 40, width: 40, height: 40, p: 0 }
   },
-  primaryBtn: { children: 'Buy Now', href: BUY_NOW_URL, ...linkProps },
+  primaryBtn: { children: 'Register', href: PAGE_PATH.register },
   navItems: [
     { id: 'home', title: 'Home', link: '/' },
     landingMegamenu,
     { id: 'components', title: 'Blocks', link: SECTION_PATH },
-    { id: 'dashboard', title: 'Dashboard', link: ADMIN_PATH, ...linkProps },
+    dashboardMegamenu,
     pagesMegamenu,
-    { id: 'docs', title: 'Docs', link: DOCS_URL, ...linkProps, icon: 'tabler-pin-invoke' }
+    { id: 'docs', title: 'Docs', link: DOCS_URL, target: '_blank', rel: 'noopener noreferrer', icon: 'tabler-pin-invoke' }
   ]
 };
