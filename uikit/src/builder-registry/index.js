@@ -9,6 +9,9 @@ import { ctaComponents } from './components/cta';
 import { socialProofComponents } from './components/social-proof';
 import { commerceComponents } from './components/commerce';
 import { templateComponents } from './components/templates';
+import { authComponents } from './components/auth';
+import { contentComponents } from './components/content';
+import { utilityComponents } from './components/utility';
 
 /***************************  REGISTRY UTILITIES  ***************************/
 
