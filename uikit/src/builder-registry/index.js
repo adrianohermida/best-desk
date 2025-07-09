@@ -12,6 +12,7 @@ import { templateComponents } from './components/templates';
 import { authComponents } from './components/auth';
 import { contentComponents } from './components/content';
 import { utilityComponents } from './components/utility';
+import { legalComponents } from './components/legal';
 
 /***************************  REGISTRY UTILITIES  ***************************/
 
@@ -27,6 +28,7 @@ export const componentsByCategory = {
   templates: templateComponents,
   auth: authComponents,
   utility: utilityComponents,
+  legal: legalComponents,
   tools: templateComponents.filter((c) => c.category === 'tools')
 };
 
@@ -58,7 +60,8 @@ export const customComponents = [
   ...templateComponents,
   ...authComponents,
   ...contentComponents,
-  ...utilityComponents
+  ...utilityComponents,
+  ...legalComponents
 ];
 
 // Registry metadata
