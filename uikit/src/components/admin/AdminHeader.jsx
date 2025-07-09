@@ -4,6 +4,7 @@ import { AppBar, Toolbar, Typography, Box, IconButton, Badge, Avatar, Menu, Menu
 import { alpha } from '@mui/material/styles';
 import { IconBell, IconSearch, IconUser, IconSettings, IconLogout, IconMenu2 } from '@tabler/icons-react';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
 import { useAppState } from '@/hooks/useAppState';
 
