@@ -80,7 +80,7 @@ export default function LazyClientele3({ title, clienteleList }) {
                   '&::after': shade
                 }}
               >
-                                <LazySliderSimple
+                <LazySliderSimple
                   settings={settings}
                   fallbackHeight={100}
                   style={{
@@ -124,7 +124,7 @@ export default function LazyClientele3({ title, clienteleList }) {
                       </Box>
                     </LazyMotionDiv>
                   ))}
-                </LazySlider>
+                </LazySliderSimple>
               </Box>
             </LazyWrapper>
           )}
