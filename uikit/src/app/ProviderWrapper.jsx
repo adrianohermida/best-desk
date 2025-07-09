@@ -16,12 +16,6 @@ export default function ProviderWrapper({ children }) {
 
   useEffect(() => {
     setLoader(false);
-
-    // Inicializar sistema de preload após carregamento
-    setTimeout(() => {
-      initializePreloading();
-      initializeBundleOptimization();
-    }, 1000);
   }, []);
 
   /**
