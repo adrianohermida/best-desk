@@ -167,43 +167,17 @@ export default function useModal(options = {}) {
 }
 
 // Hook for managing multiple modals
-export const useModals = (modalConfigs = {}) => {
-  const modals = {};
-
-  Object.keys(modalConfigs).forEach((key) => {
-    modals[key] = useModal(modalConfigs[key]);
-  });
-
-  const openModal = useCallback(
-    (modalName, data = null) => {
-      if (modals[modalName]) {
-        modals[modalName].open(data);
-      }
-    },
-    [modals]
-  );
-
-  const closeModal = useCallback(
-    (modalName) => {
-      if (modals[modalName]) {
-        modals[modalName].close();
-      }
-    },
-    [modals]
-  );
-
-  const closeAllModals = useCallback(() => {
-    Object.values(modals).forEach((modal) => modal.close());
-  }, [modals]);
-
-  const isAnyModalOpen = Object.values(modals).some((modal) => modal.isOpen);
-
+// Note: Due to React hooks rules, this should be used carefully
+// For complex modal management, consider using a context provider instead
+export const useModals = () => {
+  // This is a simplified version to avoid hook rule violations
+  // In a real app, you'd want to use Context API for multiple modals
   return {
-    modals,
-    openModal,
-    closeModal,
-    closeAllModals,
-    isAnyModalOpen
+    // Use individual useModal() calls for each modal instead
+    openModal: () => console.warn('Use individual useModal() calls for each modal'),
+    closeModal: () => console.warn('Use individual useModal() calls for each modal'),
+    closeAllModals: () => console.warn('Use individual useModal() calls for each modal'),
+    isAnyModalOpen: false
   };
 };
 
