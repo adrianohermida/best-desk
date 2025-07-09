@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
 // @project
-import Loader from '@/components/Loader';
+import OptimizedLoader from '@/components/OptimizedLoader';
 import ThemeProvider from '@/components/ThemeProvider';
 import { ConfigProvider } from '@/contexts/ConfigContext';
 import { AuthProvider } from '@/contexts/AuthContext';
