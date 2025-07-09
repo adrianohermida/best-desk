@@ -7,9 +7,7 @@ const MegaMenu4 = () => import('@/blocks/mega-menu/MegaMenu4');
 const MegaMenu5 = () => import('@/blocks/mega-menu/MegaMenu5');
 const Error404 = () => import('@/blocks/maintenance/Error404');
 const Error500 = () => import('@/blocks/maintenance/Error500');
-const Other1 = () => import('@/blocks/other/Other1');
-const Other2 = () => import('@/blocks/other/Other2');
-const ProPage = () => import('@/blocks/pro-page/ProPage');
+// Note: Other1, Other2, and ProPage components not yet implemented
 const ComingSoon = () => import('@/views/sections/ComingSoon');
 const UnderMaintenance = () => import('@/views/sections/UnderMaintenance');
 const Color = () => import('@/views/sections/Color');
