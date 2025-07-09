@@ -3,60 +3,63 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import PropTypes from 'prop-types';
-import { Box, CircularProgress, Typography, Alert, Button } from '@mui/material';
-import { IconShield, IconHome } from '@tabler/icons-react';
+import { Box, CircularProgress, Typography } from '@mui/material';
 import { useAuth } from '@/hooks/useAuth';
 
-const AdminGuard = ({ children, requiredRoles = ['admin', 'super_admin'], requiredPermissions = [], fallback = null }) => {
+/***************************  ADMIN GUARD  ***************************/
+
+const AdminGuard = ({
+  children,
+  redirectTo = '/admin/auth/login',
+  fallback = null,
+  requiredRoles = ['admin', 'super_admin'],
+  requiredPermissions = ['admin_access']
+}) => {
   const { isAuthenticated, isLoading, user, hasPermission, isRole } = useAuth();
   const router = useRouter();
   const [isChecking, setIsChecking] = useState(true);
-  const [accessDenied, setAccessDenied] = useState(false);
 
   useEffect(() => {
-    const checkAdminAccess = async () => {
+    const checkAccess = async () => {
       // Wait for auth context to finish loading
       if (isLoading) return;
 
       setIsChecking(true);
 
       try {
-        // If user is not authenticated, redirect to login
+        // Check if user is authenticated
         if (!isAuthenticated) {
-          router.push('/auth/login?redirect=/admin');
+          router.push(redirectTo);
           return;
         }
 
-        // Check if user has required roles
-        const hasValidRole = requiredRoles.some((role) => isRole(role));
-        if (!hasValidRole) {
-          setAccessDenied(true);
-          setIsChecking(false);
-          return;
-        }
-
-        // Check if user has required permissions
-        if (requiredPermissions.length > 0) {
-          const hasValidPermission = requiredPermissions.some((permission) => hasPermission(permission));
-          if (!hasValidPermission) {
-            setAccessDenied(true);
-            setIsChecking(false);
+        // Check role requirements
+        if (requiredRoles.length > 0) {
+          const hasValidRole = requiredRoles.some((role) => isRole(role));
+          if (!hasValidRole) {
+            router.push('/403'); // Access forbidden
             return;
           }
         }
 
-        // Access granted
-        setAccessDenied(false);
+        // Check permission requirements
+        if (requiredPermissions.length > 0) {
+          const hasValidPermission = requiredPermissions.some((permission) => hasPermission(permission));
+          if (!hasValidPermission) {
+            router.push('/403'); // Access forbidden
+            return;
+          }
+        }
+
         setIsChecking(false);
       } catch (error) {
         console.error('Admin guard error:', error);
-        setAccessDenied(true);
-        setIsChecking(false);
+        router.push(redirectTo);
       }
     };
 
-    checkAdminAccess();
-  }, [isAuthenticated, isLoading, user, requiredRoles, requiredPermissions, router, hasPermission, isRole]);
+    checkAccess();
+  }, [isAuthenticated, isLoading, user, router, redirectTo, requiredRoles, requiredPermissions, hasPermission, isRole]);
 
   // Show loading state
   if (isLoading || isChecking) {
@@ -71,81 +74,33 @@ const AdminGuard = ({ children, requiredRoles = ['admin', 'super_admin'], requir
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          minHeight: '100vh',
-          gap: 2,
-          p: 3
+          minHeight: '60vh',
+          gap: 2
         }}
       >
-        <IconShield size={48} color="primary" />
         <CircularProgress size={40} />
-        <Typography variant="h6" color="text.secondary">
-          Verificando permissões de admin...
+        <Typography variant="body2" color="text.secondary">
+          Verificando permissões de administrador...
         </Typography>
       </Box>
     );
   }
 
-  // Show access denied
-  if (accessDenied) {
-    return (
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: '100vh',
-          gap: 3,
-          p: 3,
-          textAlign: 'center'
-        }}
-      >
-        <IconShield size={64} color="error" />
-
-        <Box>
-          <Typography variant="h4" gutterBottom color="error">
-            Acesso Negado
-          </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
-            Você não tem permissões de administrador para acessar esta área.
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Entre em contato com o administrador do sistema se acredita que isso é um erro.
-          </Typography>
-        </Box>
-
-        <Alert severity="warning" sx={{ maxWidth: 400 }}>
-          <Typography variant="body2">
-            <strong>Usuário atual:</strong> {user?.name || 'N/A'}
-            <br />
-            <strong>Role:</strong> {user?.role || 'N/A'}
-            <br />
-            <strong>Roles necessárias:</strong> {requiredRoles.join(', ')}
-          </Typography>
-        </Alert>
-
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button variant="contained" startIcon={<IconHome />} onClick={() => router.push('/')}>
-            Voltar ao Início
-          </Button>
-
-          <Button variant="outlined" onClick={() => router.push('/auth/logout')}>
-            Fazer Logout
-          </Button>
-        </Box>
-      </Box>
-    );
+  // Show content if admin checks pass
+  if (isAuthenticated && user) {
+    return children;
   }
 
-  // Grant access
-  return children;
+  // Default fallback - should not reach here if logic is correct
+  return null;
 };
 
 AdminGuard.propTypes = {
   children: PropTypes.node.isRequired,
+  redirectTo: PropTypes.string,
+  fallback: PropTypes.node,
   requiredRoles: PropTypes.arrayOf(PropTypes.string),
-  requiredPermissions: PropTypes.arrayOf(PropTypes.string),
-  fallback: PropTypes.node
+  requiredPermissions: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default AdminGuard;
