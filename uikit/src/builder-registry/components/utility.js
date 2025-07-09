@@ -160,6 +160,86 @@ export const utilityComponents = [
     image: '/assets/images/presentation/500-light.svg'
   },
   {
+    name: 'Other1',
+    component: Other1,
+    category: 'utility',
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'Explore Our Features',
+        helperText: 'Main heading text'
+      },
+      {
+        name: 'description',
+        type: 'string',
+        defaultValue: 'Discover what makes our platform unique',
+        helperText: 'Description text below the grid'
+      },
+      {
+        name: 'primaryBtn',
+        type: 'object',
+        defaultValue: { children: 'Learn More', href: '/features' },
+        helperText: 'Primary button configuration'
+      },
+      {
+        name: 'sections',
+        type: 'list',
+        subFields: [
+          {
+            name: 'title',
+            type: 'string',
+            defaultValue: 'Feature Title'
+          },
+          {
+            name: 'subTitle',
+            type: 'string',
+            defaultValue: 'Feature description'
+          },
+          {
+            name: 'image',
+            type: 'string',
+            defaultValue: '/assets/images/graphics/default.svg'
+          },
+          {
+            name: 'link',
+            type: 'string',
+            defaultValue: '/feature'
+          },
+          {
+            name: 'animationDelay',
+            type: 'number',
+            defaultValue: 0.1
+          }
+        ],
+        defaultValue: [],
+        helperText: 'Feature sections grid'
+      }
+    ],
+    image: '/assets/images/presentation/other-light.svg'
+  },
+  {
+    name: 'Other2',
+    component: Other2,
+    category: 'utility',
+    inputs: [],
+    image: '/assets/images/presentation/other-light.svg'
+  },
+  {
+    name: 'ProPage',
+    component: ProPage,
+    category: 'utility',
+    inputs: [
+      {
+        name: 'image',
+        type: 'string',
+        defaultValue: '/assets/images/pro-page/Lock.svg',
+        helperText: 'Lock icon or promotional image'
+      }
+    ],
+    image: '/assets/images/presentation/pro-page-light.svg'
+  },
+  {
     name: 'ComingSoon',
     component: ComingSoon,
     category: 'utility',
