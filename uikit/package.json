@@ -16,6 +16,7 @@
     "knip": "knip"
   },
   "dependencies": {
+    "@builder.io/react": "^8.2.5",
     "@builder.io/sdk-react": "^4.2.2",
     "@emotion/cache": "11.14.0",
     "@emotion/react": "11.14.0",
