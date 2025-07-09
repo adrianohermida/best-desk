@@ -6,7 +6,7 @@ import { Error404Page, Error500Page } from '@/blocks/maintenance';
 
 export const errorPageComponents = [
   {
-    component: Error404,
+    component: Error404Page,
     name: 'Error404',
     category: 'utilities',
     description: '404 Not Found error page with engaging design and navigation options',
