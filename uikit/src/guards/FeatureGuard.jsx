@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAuth, useFeatures } from '@/contexts/AuthContext';
 
 // Mock features configuration - replace with real feature management system
 const FEATURES = {
@@ -73,8 +74,13 @@ const FeatureGuard = ({
     }
   }, [user, requiredFeatures, redirectTo, router]);
 
+  // Show loading while checking auth
+  if (isLoading) {
+    return null;
+  }
+
   // Don't render if not authenticated
-  if (!user?.isAuthenticated) {
+  if (!isAuthenticated) {
     return null;
   }
 
