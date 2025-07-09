@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react';
 
-// @project
-import { APP_DEFAULT_PATH } from '@/admin/config';
-
 export default function useLocalStorage(key, defaultValue) {
   const [value, setValue] = useState(() => {
     try {
