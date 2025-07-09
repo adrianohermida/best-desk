@@ -21,7 +21,7 @@ import ContainerWrapper from '@/components/ContainerWrapper';
 import FaqDetails from '@/components/faq/FaqDetails';
 import SvgIcon from '@/components/SvgIcon';
 import Typeset from '@/components/Typeset';
-import { LazySlider } from '@/components/LazySlider';
+import LazySliderSimple from '@/components/LazySliderSimple';
 import { LazyMotionDiv } from '@/components/LazyMotion';
 import { LazyWrapper } from '@/components/LazyWrapper';
 
