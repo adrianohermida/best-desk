@@ -22,6 +22,7 @@ export default function ProviderWrapper({ children }) {
     // Inicializar sistema de preload após carregamento
     setTimeout(() => {
       initializePreloading();
+      initializeBundleOptimization();
     }, 1000);
   }, []);
 
