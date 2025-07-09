@@ -44,7 +44,7 @@ export default function ProviderWrapper({ children }) {
     <ConfigProvider>
       <ThemeProvider>
         <AuthProvider>
-          <main>{loader ? <OptimizedLoader fullHeight showLogo /> : children}</main>
+          <main>{shouldShowLoader ? <OptimizedLoader fullHeight showLogo /> : children}</main>
         </AuthProvider>
       </ThemeProvider>
     </ConfigProvider>
