@@ -27,7 +27,6 @@ export default function useQuery(queryKey, queryFn, options = {}) {
   const {
     enabled = true,
     staleTime = 5 * 60 * 1000, // 5 minutes
-    cacheTime = 10 * 60 * 1000, // 10 minutes
     refetchOnWindowFocus = true,
     refetchOnMount = true,
     retry = 3,
