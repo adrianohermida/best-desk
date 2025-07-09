@@ -20,7 +20,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 // @project
-import { DynamicIcon } from '../components/DynamicIcon';
+import DynamicIcon from '../components/DynamicIcon';
 
 const DRAWER_WIDTH = 250;
 
