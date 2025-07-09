@@ -23,13 +23,17 @@ import { utilityComponents } from './components/utilities';
 export const componentsByCategory = {
   hero: heroComponents,
   feature: featureComponents,
-  navigation: [...navigationComponents, ...sectionsNavigationComponents],
+  navigation: [...navigationComponents, ...sectionsNavigationComponents, ...megaMenuComponents],
   cta: ctaComponents,
   'social-proof': socialProofComponents,
   commerce: commerceComponents,
   content: commerceComponents.filter((c) => c.category === 'content'),
   templates: templateComponents,
-  tools: templateComponents.filter((c) => c.category === 'tools')
+  tools: templateComponents.filter((c) => c.category === 'tools'),
+  integration: integrationComponents,
+  blog: blogComponents,
+  auth: authComponents,
+  utilities: [...utilityComponents, ...errorPageComponents]
 };
 
 // Get all component names by category
