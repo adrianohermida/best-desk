@@ -13,7 +13,7 @@ import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
 import Typography from '@mui/material/Typography';
 
 // @project
-import CommonFocusStyle from '@/utils/CommonFocusStyle';
+import { generateFocusVisibleStyles } from '@/utils/CommonFocusStyle';
 import menuItems from '@/admin/data/menu';
 
 // @assets
@@ -86,7 +86,7 @@ export default function AdminBreadcrumbs({ data }) {
               color: 'grey.700',
               textDecoration: 'none',
               ...(item.url && { cursor: 'pointer', ':hover': { color: 'primary.main' } }),
-              ':focus-visible': { outline: 'none', borderRadius: 0.25, ...CommonFocusStyle(theme.palette.primary.main) }
+              ':focus-visible': { outline: 'none', borderRadius: 0.25, ...generateFocusVisibleStyles(theme.palette.primary.main) }
             }}
             key={index}
           >
