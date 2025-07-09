@@ -8,6 +8,7 @@ import OptimizedLoader from '@/components/OptimizedLoader';
 import ThemeProvider from '@/components/ThemeProvider';
 import { ConfigProvider } from '@/contexts/ConfigContext';
 import { AuthProvider } from '@/contexts/AuthContext';
+import usePageLoadOptimization from '@/hooks/usePageLoadOptimization';
 
 /***************************  COMMON - CONFIG, THEME  ***************************/
 
