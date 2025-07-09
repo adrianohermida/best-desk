@@ -103,7 +103,7 @@ export function adminMiddleware(request) {
   const routeConfig = Object.entries(ADMIN_ROUTES).find(([route]) => pathname === route || pathname.startsWith(route + '/'));
 
   if (routeConfig) {
-    const [route, config] = routeConfig;
+    const [, config] = routeConfig;
 
     // Check if user has required role
     if (!hasRequiredRole(user.role, config.requiredRoles)) {
