@@ -86,7 +86,7 @@ export default function AdminBreadcrumbs({ data }) {
               color: 'grey.700',
               textDecoration: 'none',
               ...(item.url && { cursor: 'pointer', ':hover': { color: 'primary.main' } }),
-              ':focus-visible': { outline: 'none', borderRadius: 0.25, ...generateFocusStyle(theme.palette.primary.main) }
+              ':focus-visible': { outline: 'none', borderRadius: 0.25, ...CommonFocusStyle(theme.palette.primary.main) }
             }}
             key={index}
           >
