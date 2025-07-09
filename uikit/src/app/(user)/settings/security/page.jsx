@@ -168,7 +168,7 @@ export default function SecuritySettingsPage() {
         <Grid item xs={12} md={6}>
           <Paper sx={{ p: 3 }}>
             <Typography variant="h6" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <IconSmartphone size={24} />
+              <IconShield size={24} />
               Two-Factor Authentication
             </Typography>
 
