@@ -53,4 +53,5 @@ LazySlider.propTypes = {
   fallbackHeight: PropTypes.number
 };
 
+export { LazySlider };
 export default LazySlider;
