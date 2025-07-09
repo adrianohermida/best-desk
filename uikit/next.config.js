@@ -11,16 +11,6 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production'
   },
 
-  // Configuração Turbopack
-  turbo: {
-    rules: {
-      // Tree shaking para Tabler Icons
-      '*.{js,jsx,ts,tsx}': {
-        loaders: ['next-swc-loader']
-      }
-    }
-  },
-
   // Headers para performance
   async headers() {
     return [
@@ -49,13 +39,6 @@ const nextConfig = {
     ];
   },
 
-  // Redirects para SEO
-  async redirects() {
-    return [
-      // Adicionar redirects necessários aqui
-    ];
-  },
-
   // Configuração de imagens
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -74,8 +57,6 @@ const nextConfig = {
 
   // Strict mode
   reactStrictMode: true,
-
-  // SWC minification é padrão no Next.js 15
 
   // Trailing slash
   trailingSlash: false,
