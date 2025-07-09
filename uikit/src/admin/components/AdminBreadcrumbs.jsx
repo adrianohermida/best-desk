@@ -13,7 +13,7 @@ import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
 import Typography from '@mui/material/Typography';
 
 // @project
-import { generateFocusStyle } from '@/utils/generateFocusStyle';
+import CommonFocusStyle from '@/utils/CommonFocusStyle';
 import menuItems from '@/admin/data/menu';
 
 // @assets
