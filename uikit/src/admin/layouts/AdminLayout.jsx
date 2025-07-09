@@ -13,7 +13,7 @@ import Box from '@mui/material/Box';
 import AdminDrawer from './AdminDrawer';
 import AdminHeader from './AdminHeader';
 import { handlerDrawerOpen, useGetMenuMaster } from '../hooks/useMenuState';
-import AdminBreadcrumbs from './AdminBreadcrumbs';
+import AdminBreadcrumbs from '../components/AdminBreadcrumbs';
 import Loader from '../components/Loader';
 import AdminGuard from '../guards/AdminGuard';
 
