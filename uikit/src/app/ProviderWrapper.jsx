@@ -30,11 +30,13 @@ export default function ProviderWrapper({ children }) {
   return (
     <ConfigProvider>
       <AppProvider>
-        <ThemeProvider>
-          <BuilderProvider>
-            <main>{loader ? <Loader /> : children}</main>
-          </BuilderProvider>
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider>
+            <BuilderProvider>
+              <main>{loader ? <Loader /> : children}</main>
+            </BuilderProvider>
+          </ThemeProvider>
+        </AuthProvider>
       </AppProvider>
     </ConfigProvider>
   );
