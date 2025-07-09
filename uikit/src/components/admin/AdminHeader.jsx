@@ -189,7 +189,7 @@ export default function AdminHeader() {
           Account Settings
         </MenuItem>
         <Divider />
-        <MenuItem onClick={logout} sx={{ color: 'error.main' }}>
+        <MenuItem onClick={handleLogout} sx={{ color: 'error.main' }}>
           <IconLogout size={16} style={{ marginRight: 8 }} />
           Logout
         </MenuItem>
