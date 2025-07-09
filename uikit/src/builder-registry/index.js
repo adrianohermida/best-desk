@@ -55,7 +55,10 @@ export const customComponents = [
   ...ctaComponents,
   ...socialProofComponents,
   ...commerceComponents,
-  ...templateComponents
+  ...templateComponents,
+  ...authComponents,
+  ...contentComponents,
+  ...utilityComponents
 ];
 
 // Registry metadata
