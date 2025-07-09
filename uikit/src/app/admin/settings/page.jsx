@@ -80,7 +80,7 @@ export default function SettingsPage() {
         title="System Settings"
         subtitle="Configure your application settings"
         action={
-          <Button variant="contained" startIcon={<IconSave />} onClick={handleSave}>
+          <Button variant="contained" startIcon={<IconDeviceFloppy />} onClick={handleSave}>
             Save Changes
           </Button>
         }
