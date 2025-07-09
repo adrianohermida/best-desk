@@ -23,8 +23,10 @@ export const componentsByCategory = {
   cta: ctaComponents,
   'social-proof': socialProofComponents,
   commerce: commerceComponents,
-  content: commerceComponents.filter((c) => c.category === 'content'),
+  content: contentComponents,
   templates: templateComponents,
+  auth: authComponents,
+  utility: utilityComponents,
   tools: templateComponents.filter((c) => c.category === 'tools')
 };
 
