@@ -13,13 +13,24 @@ const cspHeader = `
 `;
 
 const nextConfig = {
+  // Experimental features for better performance
+  experimental: {
+    optimizePackageImports: ['@mui/material', '@mui/lab', '@tabler/icons-react']
+  },
   modularizeImports: {
     '@mui/material': {
       transform: '@mui/material/{{member}}'
     },
     '@mui/lab': {
       transform: '@mui/lab/{{member}}'
+    },
+    '@tabler/icons-react': {
+      transform: '@tabler/icons-react/dist/esm/icons/{{member}}'
     }
+  },
+  // Compiler optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production'
   },
   images: {
     remotePatterns: [
