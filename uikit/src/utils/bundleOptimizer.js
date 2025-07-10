@@ -248,7 +248,7 @@ export const initializeBundleOptimization = () => {
   });
 };
 
-export default {
+const bundleOptimizer = {
   optimizedImports,
   selectiveImport,
   analyzeBundleSize,
@@ -257,3 +257,5 @@ export default {
   getBundleMetrics,
   initializeBundleOptimization
 };
+
+export default bundleOptimizer;
