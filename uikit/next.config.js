@@ -1,68 +1,48 @@
 /** @type {import('next').NextConfig} */
+const cspHeader = `
+    default-src 'self';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://vercel.live https://va.vercel-scripts.com https://*.clarity.ms https://phpstack-207002-5085356.cloudwaysapps.com;
+    style-src 'self' 'unsafe-inline' https://phpstack-207002-5085356.cloudwaysapps.com https://fonts.googleapis.com;
+    img-src 'self' blob: data: https://www.googletagmanager.com https://flagcdn.com https://*.openstreetmap.org https://*.clarity.ms https://*.bing.com https://phpstack-207002-5085356.cloudwaysapps.com;
+    font-src 'self' https://*.gstatic.com;
+    object-src 'self';
+    base-uri 'self';
+    form-action 'self';
+    media-src 'self' https://*.cloudfront.net;
+    connect-src 'self' https://www.googletagmanager.com https://raw.githubusercontent.com https://phpstack-207002-5085356.cloudwaysapps.com https://*.clarity.ms https://*.azurewebsites.net;
+`;
+
 const nextConfig = {
-  // Experimental features para melhor performance
-  experimental: {
-    // Otimizações CSS
-    optimizeCss: true
+  modularizeImports: {
+    '@mui/material': {
+      transform: '@mui/material/{{member}}'
+    },
+    '@mui/lab': {
+      transform: '@mui/lab/{{member}}'
+    }
   },
-
-  // Configuração de build otimizada
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production'
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'flagcdn.com',
+        pathname: '**'
+      }
+    ]
   },
-
-  // Headers para performance
   async headers() {
     return [
       {
         source: '/(.*)',
         headers: [
           {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY'
-          }
-        ]
-      },
-      {
-        source: '/static/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
+            key: 'Content-Security-Policy',
+            value: cspHeader.replace(/\n/g, '')
           }
         ]
       }
     ];
-  },
-
-  // Configuração de imagens
-  images: {
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60,
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
-  },
-
-  // Compressão
-  compress: true,
-
-  // PoweredBy header removal
-  poweredByHeader: false,
-
-  // Strict mode
-  reactStrictMode: true,
-
-  // Trailing slash
-  trailingSlash: false,
-
-  // Output
-  output: 'standalone'
+  }
 };
 
-module.exports = nextConfig;
+export default nextConfig;
