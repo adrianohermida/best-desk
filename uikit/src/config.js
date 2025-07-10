@@ -52,5 +52,7 @@ export default config;
 /***************************  THEME - FONT FAMILY  ***************************/
 
 const fontArchivo = Archivo({ subsets: ['latin'], display: 'swap', weight: ['400', '500', '600', '700'] });
+const fontFigtree = Figtree({ subsets: ['latin'], display: 'swap', weight: ['300', '400', '500', '600', '700'] });
 
 export const FONT_ARCHIVO = fontArchivo.style.fontFamily;
+export const FONT_FIGTREE = fontFigtree.style.fontFamily;
