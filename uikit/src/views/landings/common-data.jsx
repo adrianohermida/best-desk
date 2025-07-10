@@ -196,35 +196,3 @@ export const pagesMegamenu = {
     bannerData: bannerData()
   }
 };
-
-/***************************  NAVBAR - MEGAMENU DASHBOARD  ***************************/
-
-export const dashboardMegamenu = {
-  id: 'dashboard',
-  title: 'Dashboard',
-  megaMenu: {
-    type: MegaMenuType.MEGAMENU5,
-    toggleBtn: { children: 'Dashboard' },
-    popperWidth: 660,
-    menuItems: [
-      {
-        title: 'Admin Pages',
-        itemsList: [
-          { title: 'Dashboard', link: { href: '/admin/dashboard' } },
-          { title: 'Analytics', link: { href: '/admin/analytics' } },
-          { title: 'Users', link: { href: '/admin/users' } }
-        ]
-      },
-      {
-        title: 'Authentication',
-        itemsList: [
-          { title: 'Login', link: { href: PAGE_PATH.login } },
-          { title: 'Register', link: { href: PAGE_PATH.register } },
-          { title: 'Forgot Password', link: { href: PAGE_PATH.forgotPassword } },
-          { title: 'OTP Verification', link: { href: PAGE_PATH.otpVerification } },
-          { title: 'New Password', link: { href: PAGE_PATH.newPassword } }
-        ]
-      }
-    ]
-  }
-};
