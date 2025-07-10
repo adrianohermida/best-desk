@@ -1,28 +1,13 @@
-'use client';
-import { useEffect } from 'react';
+// @next
+import dynamic from 'next/dynamic';
 
-export default function AdminUsers() {
-  useEffect(() => {
-    // Redirecionar para o servidor admin original
-    window.location.href = 'http://localhost:3001/dashboard';
-  }, []);
+// @project - Usando a view do admin dashboard
+const AdminUsers = dynamic(() => import('@/views/admin/dashboard'), {
+  loading: () => <div>Carregando Users...</div>
+});
 
-  return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        fontFamily: 'system-ui'
-      }}
-    >
-      <div style={{ textAlign: 'center' }}>
-        <h2>Redirecionando para o Users Admin...</h2>
-        <p>
-          Se não foi redirecionado automaticamente, <a href="http://localhost:3001/dashboard">clique aqui</a>
-        </p>
-      </div>
-    </div>
-  );
+/***************************  USERS PAGE  ***************************/
+
+export default function UsersPage() {
+  return <AdminUsers />;
 }
