@@ -13,10 +13,10 @@ import Box from '@mui/material/Box';
 import Drawer from './Drawer';
 import Header from './Header';
 import { handlerDrawerOpen, useGetMenuMaster } from '@/states/menu';
-import Breadcrumbs from '@/components/Breadcrumbs';
+import Breadcrumbs from '@/components/AdminBreadcrumbs';
 import Loader from '@/components/Loader';
 
-import { DRAWER_WIDTH } from '@/config';
+import { DRAWER_WIDTH } from '@/config-admin';
 
 /***************************  ADMIN LAYOUT  ***************************/
 
