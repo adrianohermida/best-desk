@@ -1,15 +1,7 @@
 import PropTypes from 'prop-types';
 
-// @next
-import dynamic from 'next/dynamic';
-
-// @project - Usando o layout original do template admin
-const AdminLayout = dynamic(() => import('@admin/layouts/AdminLayout'));
-
-/***************************  LAYOUT - ADMIN  ***************************/
-
-export default function Layout({ children }) {
-  return <AdminLayout>{children}</AdminLayout>;
+export default function AdminLayout({ children }) {
+  return <>{children}</>;
 }
 
-Layout.propTypes = { children: PropTypes.any };
+AdminLayout.propTypes = { children: PropTypes.any };
