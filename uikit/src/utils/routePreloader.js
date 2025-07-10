@@ -206,3 +206,5 @@ const routePreloader = {
   initializePreloading,
   useRoutePreloader
 };
+
+export default routePreloader;
