@@ -1,13 +1,11 @@
 // @next
 import dynamic from 'next/dynamic';
 
-// @project - Usando a view do admin dashboard
-const AdminUsers = dynamic(() => import('@/views/admin/dashboard'), {
-  loading: () => <div>Carregando Users...</div>
-});
+// @project - Usando sample page do template original para users
+const UsersPage = dynamic(() => import('@/views/admin/sample-page'));
 
 /***************************  USERS PAGE  ***************************/
 
-export default function UsersPage() {
-  return <AdminUsers />;
+export default function UsersPages() {
+  return <UsersPage />;
 }
