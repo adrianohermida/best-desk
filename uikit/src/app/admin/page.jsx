@@ -1,61 +1,142 @@
 'use client';
-import { useEffect } from 'react';
 
 // @mui
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import CircularProgress from '@mui/material/CircularProgress';
-import Stack from '@mui/material/Stack';
+import { Box, Container, Typography, Grid, Card, CardContent, CardActions, Button, Stack, Avatar } from '@mui/material';
+import { IconDashboard, IconChartBar, IconUsers, IconSettings, IconUser, IconShield, IconArrowRight } from '@tabler/icons-react';
+import Link from 'next/link';
 
-export default function AdminRedirect() {
-  useEffect(() => {
-    // Tentar redirecionar após 2 segundos
-    const timer = setTimeout(() => {
-      window.location.href = 'http://localhost:3001';
-    }, 2000);
+const adminModules = [
+  {
+    title: 'Dashboard',
+    description: 'View overall system metrics and key performance indicators',
+    icon: IconDashboard,
+    href: '/admin/dashboard',
+    color: 'primary'
+  },
+  {
+    title: 'Analytics',
+    description: 'Detailed analytics and reporting on user behavior and system performance',
+    icon: IconChartBar,
+    href: '/admin/analytics',
+    color: 'success'
+  },
+  {
+    title: 'User Management',
+    description: 'Manage user accounts, roles and permissions',
+    icon: IconUsers,
+    href: '/admin/users',
+    color: 'warning'
+  },
+  {
+    title: 'Profile Settings',
+    description: 'Manage your personal profile and account settings',
+    icon: IconUser,
+    href: '/profile',
+    color: 'info'
+  },
+  {
+    title: 'Account Settings',
+    description: 'Configure account preferences and security settings',
+    icon: IconSettings,
+    href: '/settings',
+    color: 'secondary'
+  },
+  {
+    title: 'Security',
+    description: 'Manage security settings, passwords and two-factor authentication',
+    icon: IconShield,
+    href: '/settings/security',
+    color: 'error'
+  }
+];
 
-    return () => clearTimeout(timer);
-  }, []);
-
+export default function AdminPage() {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '100vh',
-        padding: 3,
-        textAlign: 'center'
-      }}
-    >
-      <Stack spacing={3} alignItems="center">
-        <CircularProgress size={60} />
+    <Container maxWidth="xl" sx={{ py: 4 }}>
+      <Stack spacing={4}>
+        {/* Header */}
+        <Box sx={{ textAlign: 'center' }}>
+          <Typography variant="h3" component="h1" gutterBottom>
+            Admin Panel
+          </Typography>
+          <Typography variant="h6" color="text.secondary">
+            Welcome to the SaasAble Administration Dashboard
+          </Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
+            Choose a module below to get started with managing your application
+          </Typography>
+        </Box>
 
-        <Typography variant="h4" component="h1">
-          Redirecionando para o Dashboard Admin
-        </Typography>
+        {/* Module Cards */}
+        <Grid container spacing={3}>
+          {adminModules.map((module, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Card
+                sx={{
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  transition: 'transform 0.2s, box-shadow 0.2s',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: (theme) => theme.shadows[8]
+                  }
+                }}
+              >
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Stack spacing={2}>
+                    <Avatar
+                      sx={{
+                        bgcolor: `${module.color}.main`,
+                        width: 56,
+                        height: 56
+                      }}
+                    >
+                      <module.icon size={28} />
+                    </Avatar>
 
-        <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 500 }}>
-          Você está sendo redirecionado para o dashboard admin original do SaasAble. O admin roda em um servidor separado para preservar
-          100% das funcionalidades originais.
-        </Typography>
+                    <Typography variant="h6" component="h2">
+                      {module.title}
+                    </Typography>
 
-        <Stack direction="row" spacing={2}>
-          <Button variant="contained" onClick={() => (window.location.href = 'http://localhost:3001')}>
-            Ir para Dashboard Admin
-          </Button>
+                    <Typography variant="body2" color="text.secondary">
+                      {module.description}
+                    </Typography>
+                  </Stack>
+                </CardContent>
 
-          <Button variant="outlined" onClick={() => (window.location.href = '/')}>
-            Voltar ao Site
-          </Button>
-        </Stack>
+                <CardActions>
+                  <Button
+                    component={Link}
+                    href={module.href}
+                    variant="contained"
+                    color={module.color}
+                    endIcon={<IconArrowRight size={16} />}
+                    fullWidth
+                  >
+                    Access {module.title}
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
 
-        <Typography variant="caption" color="text.secondary">
-          Se o redirecionamento não funcionar automaticamente, clique no botão acima.
-        </Typography>
+        {/* Footer Info */}
+        <Box sx={{ textAlign: 'center', mt: 6, p: 3, bgcolor: 'grey.50', borderRadius: 2 }}>
+          <Typography variant="body2" color="text.secondary">
+            Need help? Check out the documentation or contact support
+          </Typography>
+          <Stack direction="row" spacing={2} justifyContent="center" sx={{ mt: 2 }}>
+            <Button variant="outlined" size="small">
+              Documentation
+            </Button>
+            <Button variant="outlined" size="small">
+              Support
+            </Button>
+          </Stack>
+        </Box>
       </Stack>
-    </Box>
+    </Container>
   );
 }
