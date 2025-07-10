@@ -1,9 +1,16 @@
 'use client';
 
 // @project
-import { Feature20 } from '@/blocks/feature';
+import { Benefit5 } from '@/blocks/benefit';
+import { Clientele3 } from '@/blocks/clientele';
+import { Cta4, Cta5 } from '@/blocks/cta';
+import { Faq6 } from '@/blocks/faq';
+import { Feature18, Feature20, Feature21 } from '@/blocks/feature';
 import { Hero17 } from '@/blocks/hero';
-import LazySection from '@/components/LazySection';
+import { Integration2 } from '@/blocks/integration';
+import { Other1 } from '@/blocks/other';
+import { Pricing9 } from '@/blocks/pricing';
+import { Testimonial10 } from '@/blocks/testimonial';
 import useDataThemeMode from '@/hooks/useDataThemeMode';
 
 // @data
@@ -23,50 +30,51 @@ import {
   testimonial
 } from './data';
 
-/***************************  PAGE - MAIN  ***************************/
+/***************************  PAGE - MAIN (ORIGINAL NO LAZY)  ***************************/
 
 export default function Main() {
   useDataThemeMode();
 
   return (
     <>
+      {/* Hero Section */}
       <Hero17 {...hero} />
+
+      {/* Feature Section */}
       <Feature20 {...feature20} />
 
-      <LazySection
-        sections={[
-          { importFunc: () => import('@/blocks/benefit').then((module) => ({ default: module.Benefit5 })), props: benefit },
-          { importFunc: () => import('@/blocks/integration').then((module) => ({ default: module.Integration2 })), props: integration },
-          { importFunc: () => import('@/blocks/other').then((module) => ({ default: module.Other1 })), props: other }
-        ]}
-        offset="200px"
-      />
+      {/* Benefit Section */}
+      <Benefit5 {...benefit} />
 
-      <LazySection
-        sections={[
-          { importFunc: () => import('@/blocks/feature').then((module) => ({ default: module.Feature18 })), props: feature18 },
-          { importFunc: () => import('@/blocks/feature').then((module) => ({ default: module.Feature21 })), props: feature21 },
-          { importFunc: () => import('@/blocks/cta').then((module) => ({ default: module.Cta4 })), props: cta4 }
-        ]}
-        offset="200px"
-      />
+      {/* Integration Section */}
+      <Integration2 {...integration} />
 
-      <LazySection
-        sections={[
-          { importFunc: () => import('@/blocks/testimonial').then((module) => ({ default: module.Testimonial10 })), props: testimonial },
-          { importFunc: () => import('@/blocks/clientele').then((module) => ({ default: module.Clientele3 })), props: clientele },
-          { importFunc: () => import('@/blocks/pricing').then((module) => ({ default: module.Pricing9 })), props: pricing }
-        ]}
-        offset="200px"
-      />
+      {/* Other Section */}
+      <Other1 {...other} />
 
-      <LazySection
-        sections={[
-          { importFunc: () => import('@/blocks/cta').then((module) => ({ default: module.Cta5 })), props: cta5 },
-          { importFunc: () => import('@/blocks/faq').then((module) => ({ default: module.Faq6 })), props: faq }
-        ]}
-        offset="200px"
-      />
+      {/* Feature 18 */}
+      <Feature18 {...feature18} />
+
+      {/* Feature 21 */}
+      <Feature21 {...feature21} />
+
+      {/* CTA 4 */}
+      <Cta4 {...cta4} />
+
+      {/* Testimonial */}
+      <Testimonial10 {...testimonial} />
+
+      {/* Clientele */}
+      <Clientele3 {...clientele} />
+
+      {/* Pricing */}
+      <Pricing9 {...pricing} />
+
+      {/* CTA 5 */}
+      <Cta5 {...cta5} />
+
+      {/* FAQ */}
+      <Faq6 {...faq} />
     </>
   );
 }
