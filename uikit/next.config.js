@@ -13,22 +13,6 @@ const cspHeader = `
 `;
 
 const nextConfig = {
-  async rewrites() {
-    return [
-      {
-        source: '/admin/dashboard',
-        destination: '/admin-proxy/dashboard'
-      },
-      {
-        source: '/admin/analytics',
-        destination: '/admin-proxy/analytics'
-      },
-      {
-        source: '/admin/users',
-        destination: '/admin-proxy/users'
-      }
-    ];
-  },
   modularizeImports: {
     '@mui/material': {
       transform: '@mui/material/{{member}}'
