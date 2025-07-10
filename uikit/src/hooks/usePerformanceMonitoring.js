@@ -139,7 +139,7 @@ export function usePerformanceMonitoring(options = {}) {
 
   // Análise de performance
   const analyzePerformance = useCallback(() => {
-    const { webVitals, resourceTiming, memoryUsage, renderMetrics } = metrics;
+    const { webVitals, resourceTiming, memoryUsage } = metrics;
 
     const analysis = {
       overall: 'good',
