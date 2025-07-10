@@ -2,6 +2,21 @@ import { useState, useEffect } from 'react';
 
 /***************************  HOOKS - LOCAL STORAGE  ***************************/
 
+/**
+ * Custom hook to manage localStorage with React state synchronization.
+ *
+ * This hook provides a convenient way to:
+ * - Read an initial value from localStorage (or use a default value if none exists).
+ * - Synchronize the value with localStorage whenever it changes.
+ * - Listen for changes to the same key in localStorage from other browser tabs or windows.
+ *
+ * @template ValueType - The type of the stored value.
+ * @param {string} key - The key used to store the value in localStorage.
+ * @param {ValueType} defaultValue - The default value used if no value exists in localStorage.
+ * @returns {[ValueType, (newValue: ValueType | ((currentValue: ValueType) => ValueType)) => void]}
+ *   An array with the current value and a function to update it.
+ */
+
 export default function useLocalStorage(key, defaultValue) {
   const [value, setValue] = useState(() => {
     const storedValue = typeof window !== 'undefined' ? localStorage.getItem(key) : null;
@@ -9,6 +24,7 @@ export default function useLocalStorage(key, defaultValue) {
   });
 
   useEffect(() => {
+    // Define a listener to update the state when the same key in localStorage changes
     const listener = (e) => {
       if (typeof window !== 'undefined' && e.storageArea === localStorage && e.key === key) {
         setValue(e.newValue ? JSON.parse(e.newValue) : e.newValue);
@@ -21,6 +37,7 @@ export default function useLocalStorage(key, defaultValue) {
     };
   }, [key, defaultValue]);
 
+  // Function to update both the local state and localStorage
   const setValueInLocalStorage = (newValue) => {
     setValue((currentValue) => {
       const result = typeof newValue === 'function' ? newValue(currentValue) : newValue;
@@ -29,5 +46,6 @@ export default function useLocalStorage(key, defaultValue) {
     });
   };
 
+  // Return the current value and the function to update it
   return [value, setValueInLocalStorage];
 }
