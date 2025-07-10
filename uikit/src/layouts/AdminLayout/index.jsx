@@ -1,62 +1,47 @@
 'use client';
 import PropTypes from 'prop-types';
 
-import { useEffect } from 'react';
-
-import useMediaQuery from '@mui/material/useMediaQuery';
-import Container from '@mui/material/Container';
-import Toolbar from '@mui/material/Toolbar';
-import Stack from '@mui/material/Stack';
+// @mui
 import Box from '@mui/material/Box';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
-// @project
-import Drawer from './Drawer';
-import Header from './Header';
-import { handlerDrawerOpen, useGetMenuMaster } from '@/states/menu';
-import Breadcrumbs from '@/components/Breadcrumbs';
-import Loader from '@/components/Loader';
+/***************************  SIMPLIFIED ADMIN LAYOUT  ***************************/
 
-import { DRAWER_WIDTH } from '@/config';
-
-/***************************  ADMIN LAYOUT  ***************************/
-
-export default function DashboardLayout({ children }) {
-  const { menuMasterLoading } = useGetMenuMaster();
-
-  const downXL = useMediaQuery((theme) => theme.breakpoints.down('xl'));
-
-  useEffect(() => {
-    handlerDrawerOpen(!downXL);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [downXL]);
-
-  if (menuMasterLoading) return <Loader />;
-
+export default function AdminLayout({ children }) {
   return (
-    <Stack direction="row" width={1}>
-      <Header />
-      <Drawer />
-      <Box component="main" sx={{ width: `calc(100% - ${DRAWER_WIDTH}px)`, flexGrow: 1, p: { xs: 2, sm: 3 } }}>
-        <Toolbar sx={{ minHeight: { xs: 54, sm: 46, md: 76 } }} />
-        <Box
-          sx={{
-            py: 0.4,
-            px: 1.5,
-            mx: { xs: -2, sm: -3 },
-            display: { xs: 'block', md: 'none' },
-            borderBottom: 1,
-            borderColor: 'divider',
-            mb: 2
-          }}
-        >
-          <Breadcrumbs />
-        </Box>
-        <Container maxWidth="lg" sx={{ px: { xs: 0, sm: 2 } }}>
-          {children}
-        </Container>
-      </Box>
-    </Stack>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <AppBar position="static" sx={{ backgroundColor: 'primary.main' }}>
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            SaasAble Admin Dashboard
+          </Typography>
+          <Stack direction="row" spacing={2}>
+            <Button color="inherit" href="/admin/dashboard">
+              Dashboard
+            </Button>
+            <Button color="inherit" href="/admin/analytics">
+              Analytics
+            </Button>
+            <Button color="inherit" href="/admin/users">
+              Users
+            </Button>
+            <Button color="inherit" href="/">
+              ← Voltar ao Site
+            </Button>
+          </Stack>
+        </Toolbar>
+      </AppBar>
+
+      <Container component="main" sx={{ flexGrow: 1, py: 3 }}>
+        {children}
+      </Container>
+    </Box>
   );
 }
 
-DashboardLayout.propTypes = { children: PropTypes.any };
+AdminLayout.propTypes = { children: PropTypes.any };
