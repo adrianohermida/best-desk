@@ -157,39 +157,74 @@ export const pagesMegamenu = {
   megaMenu: {
     type: MegaMenuType.MEGAMENU5,
     toggleBtn: { children: 'Pages' },
-    popperWidth: 860,
+    popperWidth: 1000,
     menuItems: [
       {
-        title: 'General',
+        title: 'Main Pages',
         itemsList: [
-          { title: 'About', link: { href: 'https://stage.saasable.io/about', ...linkProps } },
-          { title: 'Career', status: 'Pro' },
-          { title: 'Privacy Policy', link: { href: PAGE_PATH.privacyPolicyPage, ...linkProps } },
-          { title: 'Contact Us', status: 'Pro' },
-          { title: 'FAQs', status: 'Pro' },
-          { title: 'Pricing', status: 'Pro' }
+          { title: 'Home', link: { href: '/' } },
+          { title: 'Contact', link: { href: '/contact' } },
+          { title: 'Privacy Policy', link: { href: '/privacy-policy' } },
+          { title: 'Terms & Conditions', link: { href: '/terms-condition' } },
+          { title: 'Templates', link: { href: '/templates' } },
+          { title: 'Error 403', link: { href: '/403' } }
         ]
       },
       {
-        title: 'Maintenance',
+        title: 'Sections (33)',
         itemsList: [
-          { title: 'Coming Soon', status: 'Pro' },
-          { title: 'Error 404', link: { href: PRIVIEW_PATH.error404, ...linkProps } },
-          { title: 'Error 500', link: { href: PRIVIEW_PATH.error500, ...linkProps } },
-          { title: 'Under Maintenance', status: 'Pro' }
+          { title: 'All Sections', link: { href: '/sections' } },
+          { title: 'About', link: { href: '/sections/about' } },
+          { title: 'Benefits', link: { href: '/sections/benefit' } },
+          { title: 'Blog', link: { href: '/sections/blog' } },
+          { title: 'Clientele', link: { href: '/sections/clientele' } },
+          { title: 'Contact Us', link: { href: '/sections/contact-us' } },
+          { title: 'CTA', link: { href: '/sections/cta' } },
+          { title: 'FAQ', link: { href: '/sections/faq' } },
+          { title: 'Features', link: { href: '/sections/feature' } },
+          { title: 'Hero', link: { href: '/sections/hero' } },
+          { title: 'Pricing', link: { href: '/sections/pricing' } },
+          { title: 'Testimonials', link: { href: '/sections/testimonial' } }
         ]
       },
       {
-        title: 'External',
+        title: 'Blocks (23)',
         itemsList: [
-          { title: 'Blog', link: { href: 'https://blog.saasable.io/', ...linkProps } },
-          { title: 'Documentation', link: { href: DOCS_URL, ...linkProps } },
-          { title: 'Support', link: { href: branding.company.socialLink.support, ...linkProps } },
-          {
-            title: 'Discord',
-            link: { href: branding.company.socialLink.discord, ...linkProps }
-          },
-          { title: 'Terms & Conditions', link: { href: 'https://mui.com/store/terms/', ...linkProps } }
+          { title: 'Benefits 5', link: { href: '/blocks/benefit/benefit5' } },
+          { title: 'Clientele 3', link: { href: '/blocks/clientele/clientele3' } },
+          { title: 'Contact Us 4', link: { href: '/blocks/contact-us/contact-us4' } },
+          { title: 'CTA 4', link: { href: '/blocks/cta/cta4' } },
+          { title: 'CTA 5', link: { href: '/blocks/cta/cta5' } },
+          { title: 'FAQ 6', link: { href: '/blocks/faq/faq6' } },
+          { title: 'Features 18', link: { href: '/blocks/feature/feature18' } },
+          { title: 'Hero 17', link: { href: '/blocks/hero/hero17' } },
+          { title: 'Navbar 10', link: { href: '/blocks/navbar/navbar10' } },
+          { title: 'Pricing 9', link: { href: '/blocks/pricing/pricing9' } }
+        ]
+      },
+      {
+        title: 'Error & Maintenance',
+        itemsList: [
+          { title: 'Coming Soon', link: { href: '/sections/coming-soon' } },
+          { title: 'Error 404 (Section)', link: { href: '/sections/error404' } },
+          { title: 'Error 500 (Section)', link: { href: '/sections/error500' } },
+          { title: 'Error 404 (Block)', link: { href: '/blocks/error404' } },
+          { title: 'Error 500 (Block)', link: { href: '/blocks/error500' } },
+          { title: 'Under Maintenance', link: { href: '/sections/under-maintenance' } },
+          { title: 'Early Access', link: { href: '/sections/early-access' } }
+        ]
+      },
+      {
+        title: 'Development Tools',
+        itemsList: [
+          { title: 'Colors', link: { href: '/sections/color' } },
+          { title: 'Typography', link: { href: '/sections/typography' } },
+          { title: 'Icons', link: { href: '/sections/icon' } },
+          { title: 'Gallery', link: { href: '/sections/gallery' } },
+          { title: 'Mega Menu Demo', link: { href: '/sections/mega-menu' } },
+          { title: 'Navbar Demo', link: { href: '/sections/navbar' } },
+          { title: 'Footer Demo', link: { href: '/sections/footer' } },
+          { title: 'Builder', link: { href: '/builder' } }
         ]
       }
     ],
