@@ -16,9 +16,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 // @project
-import EmptySearch from '@/components/header/empty-state/EmptySearch';
 import MainCard from '@/components/MainCard';
-import NotificationItem from '@/components/NotificationItem';
 import { AvatarSize } from '@/enum';
 
 // @assets
@@ -31,7 +29,7 @@ const profileData = [
   { alt: 'Apliaye Aweoa', src: '/assets/images/users/avatar-2.png', title: 'Apliaye Aweoa', subTitle: 'Admin' }
 ];
 
-const listCotent = [
+const listContent = [
   { title: 'Role', items: ['Applican', 'App User'] },
   { title: 'Files', items: ['Applican', 'Applican'] }
 ];
@@ -171,20 +169,18 @@ export default function SearchBar() {
                 }}
               >
                 {isEmptySearch ? (
-                  <EmptySearch />
+                  <Typography variant="body2" sx={{ p: 2, textAlign: 'center', color: 'text.secondary' }}>
+                    Start typing to search...
+                  </Typography>
                 ) : (
                   <List disablePadding>
                     {renderSubheader('Users')}
                     {profileData.map((user, index) => (
                       <ListItemButton sx={buttonStyle} key={index} onClick={handleActionClick}>
-                        <NotificationItem
-                          avatar={{ alt: user.alt, src: user.src, size: AvatarSize.XS }}
-                          title={user.title}
-                          subTitle={user.subTitle}
-                        />
+                        <ListItemText primary={user.title} secondary={user.subTitle} />
                       </ListItemButton>
                     ))}
-                    {listCotent.map((list, item) => (
+                    {listContent.map((list, item) => (
                       <Fragment key={item}>
                         {renderSubheader(list.title, true)}
                         {list.items.map((item, index) => renderListItem(item, index))}
