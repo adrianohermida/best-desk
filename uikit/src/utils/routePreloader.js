@@ -195,7 +195,7 @@ export const useRoutePreloader = (routes = []) => {
   }
 };
 
-export default {
+const routePreloader = {
   preloadRoute,
   preloadRoutesByPriority,
   preloadOnIdle,
