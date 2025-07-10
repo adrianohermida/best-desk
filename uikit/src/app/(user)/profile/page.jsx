@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 import {
   Box,
   Container,
@@ -19,17 +20,17 @@ import {
   Switch,
   FormControlLabel
 } from '@mui/material';
-import {
-  IconUser,
-  IconMail,
-  IconPhone,
-  IconMapPin,
-  IconCalendar,
-  IconSettings,
-  IconBell,
-  IconShield,
-  IconCreditCard
-} from '@tabler/icons-react';
+
+// Dynamic imports for icons to reduce initial bundle size
+const IconUser = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconUser })));
+const IconMail = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconMail })));
+const IconPhone = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconPhone })));
+const IconMapPin = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconMapPin })));
+const IconCalendar = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconCalendar })));
+const IconSettings = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconSettings })));
+const IconBell = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconBell })));
+const IconShield = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconShield })));
+const IconCreditCard = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconCreditCard })));
 
 // Mock user data - replace with real user data
 const mockUser = {
