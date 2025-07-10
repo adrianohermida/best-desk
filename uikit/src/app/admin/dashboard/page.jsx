@@ -1,8 +1,8 @@
 // @next
 import dynamic from 'next/dynamic';
 
-// @project
-const DashboardPage = dynamic(() => import('@/views/admin/dashboard'));
+// @project - Usando a estrutura do template admin original
+const DashboardPage = dynamic(() => import('../../../../admin/src/views/admin/dashboard'));
 
 /***************************  DASHBOARD PAGE  ***************************/
 
