@@ -41,7 +41,7 @@ export let ThemeI18n;
 /***************************  CONFIG  ***************************/
 
 const config = {
-  currentTheme: Themes.THEME_HOSTING,
+  currentTheme: Themes.THEME_AI,
   mode: ThemeMode.LIGHT,
   themeDirection: ThemeDirection.LTR,
   miniDrawer: false,
