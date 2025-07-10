@@ -14,20 +14,34 @@ export default function ProviderWrapper({ children }) {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    setLoader(false);
+    // Timeout mais curto para debug
+    const timer = setTimeout(() => {
+      setLoader(false);
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, []);
 
-  /**
-   * A loader is needed here to initialize the configuration from localStorage and set the default theme.
-   * Without a loader,
-   * the theme palette and fontFamily don't match, resulting in an error like:
-   * "Warning: Prop className did not match".
-   */
+  if (loader) {
+    return (
+      <div
+        style={{
+          height: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '14px'
+        }}
+      >
+        Loading...
+      </div>
+    );
+  }
 
   return (
     <ConfigProvider>
       <ThemeProvider>
-        <main>{loader ? <Loader /> : children}</main>
+        <main>{children}</main>
       </ThemeProvider>
     </ConfigProvider>
   );
