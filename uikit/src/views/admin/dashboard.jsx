@@ -1,25 +1,59 @@
 // @mui
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 
-// @project
-import AnalyticsOverviewCard from '@/sections/dashboard/AnalyticsOverviewCard';
-import AnalyticsOverviewChart from '@/sections/dashboard/AnalyticsOverviewChart';
-import AnalyticsTopRef from '@/sections/dashboard/AnalyticsTopRef';
+/***************************  SIMPLE ADMIN DASHBOARD  ***************************/
 
-/***************************  ANALYTICS - OVERVIEW  ***************************/
-
-export default function AnalyticsOverview() {
+export default function AdminDashboard() {
   return (
-    <Grid container spacing={{ xs: 2, md: 3 }}>
-      <Grid size={12}>
-        <AnalyticsOverviewCard />
+    <Box sx={{ p: 3 }}>
+      <Typography variant="h4" sx={{ mb: 3 }}>
+        Dashboard
+      </Typography>
+
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={4}>
+          <Card>
+            <CardContent>
+              <Typography variant="h6" gutterBottom>
+                Total Users
+              </Typography>
+              <Typography variant="h4" color="primary">
+                1,234
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} md={4}>
+          <Card>
+            <CardContent>
+              <Typography variant="h6" gutterBottom>
+                Revenue
+              </Typography>
+              <Typography variant="h4" color="success.main">
+                $12,345
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} md={4}>
+          <Card>
+            <CardContent>
+              <Typography variant="h6" gutterBottom>
+                Orders
+              </Typography>
+              <Typography variant="h4" color="info.main">
+                567
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
       </Grid>
-      <Grid size={12}>
-        <AnalyticsOverviewChart />
-      </Grid>
-      <Grid size={12}>
-        <AnalyticsTopRef />
-      </Grid>
-    </Grid>
+    </Box>
   );
 }
