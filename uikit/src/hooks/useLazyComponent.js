@@ -7,7 +7,7 @@ import { useState, useEffect, useMemo, lazy } from 'react';
  * @returns {Object} - Componente lazy e estado de loading
  */
 export function useLazyComponent(importFn, options = {}) {
-  const { fallback = null, retryCount = 3, retryDelay = 1000, preload = false } = options;
+  const { retryCount = 3, retryDelay = 1000, preload = false } = options;
 
   const [error, setError] = useState(null);
   const [retries, setRetries] = useState(0);
@@ -16,10 +16,10 @@ export function useLazyComponent(importFn, options = {}) {
   const LazyComponent = useMemo(() => {
     return lazy(async () => {
       try {
-        const module = await importFn();
+        const componentModule = await importFn();
         setError(null);
         setRetries(0);
-        return module;
+        return componentModule;
       } catch (err) {
         if (retries < retryCount) {
           setRetries((prev) => prev + 1);
