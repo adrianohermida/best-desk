@@ -1,5 +1,5 @@
 // @next
-import { Archivo } from 'next/font/google';
+import { Archivo, Figtree } from 'next/font/google';
 
 /***************************  THEME CONSTANT  ***************************/
 
