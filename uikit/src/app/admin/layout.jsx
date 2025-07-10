@@ -13,10 +13,10 @@ import {
   ListItemIcon,
   ListItemText,
   IconButton,
-  useTheme,
-  useMediaQuery,
   Divider
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import {
   IconMenu2,
   IconDashboard,
