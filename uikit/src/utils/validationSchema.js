@@ -46,3 +46,14 @@ export const contactSchema = {
   required: 'Contact number is required',
   pattern: { value: /^[0-9()\-\.]{7,15}$/, message: 'Invalid contact number' }
 };
+
+export const phoneSchema = {
+  required: 'Phone number is required',
+  pattern: { value: /^[0-9()\-\.\+\s]{7,20}$/, message: 'Invalid phone number format' },
+  validate: {
+    trim: (value) => {
+      const trimmedValue = value.trim();
+      return trimmedValue.length > 0 || 'Phone number cannot be empty or contain only spaces';
+    }
+  }
+};
