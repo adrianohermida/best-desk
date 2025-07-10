@@ -1,14 +1,14 @@
 // @next
 import { Archivo } from 'next/font/google';
 
-/***************************  THEME CONSTANT  ***************************/
+/***************************  ADMIN THEME CONSTANT  ***************************/
 
-export const APP_DEFAULT_PATH = '/dashboard';
+export const APP_DEFAULT_PATH = '/admin/dashboard';
 
 export const DRAWER_WIDTH = 254;
 export const MINI_DRAWER_WIDTH = 76 + 1; // 1px - for right-side border
 
-/***************************  THEME ENUM  ***************************/
+/***************************  ADMIN THEME ENUM  ***************************/
 
 export let Themes;
 
@@ -37,7 +37,7 @@ export let ThemeI18n;
   ThemeI18n['ZH'] = 'zh';
 })(ThemeI18n || (ThemeI18n = {}));
 
-/***************************  CONFIG  ***************************/
+/***************************  ADMIN CONFIG  ***************************/
 
 const config = {
   currentTheme: Themes.THEME_HOSTING,
@@ -49,7 +49,7 @@ const config = {
 
 export default config;
 
-/***************************  THEME - FONT FAMILY  ***************************/
+/***************************  ADMIN THEME - FONT FAMILY  ***************************/
 
 const fontArchivo = Archivo({ subsets: ['latin'], display: 'swap', weight: ['400', '500', '600', '700'] });
 
