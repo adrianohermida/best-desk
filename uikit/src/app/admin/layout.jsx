@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 
 // @project - Usando o layout original do template admin
-const AdminLayout = dynamic(() => import('../../../admin/src/layouts/AdminLayout'));
+const AdminLayout = dynamic(() => import('@admin/layouts/AdminLayout'));
 
 /***************************  LAYOUT - ADMIN  ***************************/
 
