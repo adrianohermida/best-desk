@@ -12,7 +12,7 @@ import DrawerContent from './DrawerContent';
 import MiniDrawerStyled from './MiniDrawerStyled';
 
 import { handlerDrawerOpen, useGetMenuMaster } from '@/states/menu';
-import { DRAWER_WIDTH } from '@/config';
+import { DRAWER_WIDTH } from '@/config-admin';
 
 /***************************  ADMIN LAYOUT - DRAWER  ***************************/
 
