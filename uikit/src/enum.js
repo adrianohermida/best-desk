@@ -42,3 +42,19 @@ export let DynamicComponentType;
   DynamicComponentType['ICON'] = 'icons';
   DynamicComponentType['IMAGE'] = 'images';
 })(DynamicComponentType || (DynamicComponentType = {}));
+
+//@dashboard.js - Tabs custom props `type` enum
+export let TabsType;
+
+(function (TabsType) {
+  TabsType['SEGMENTED'] = 'segmented';
+})(TabsType || (TabsType = {}));
+
+//@dashboard.js - Chart custom view mode enum
+export let ViewMode;
+
+(function (ViewMode) {
+  ViewMode['DAILY'] = 'Daily';
+  ViewMode['MONTHLY'] = 'Monthly';
+  ViewMode['YEARLY'] = 'Yearly';
+})(ViewMode || (ViewMode = {}));
