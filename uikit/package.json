@@ -26,6 +26,7 @@
     "@mui/material-nextjs": "7.0.2",
     "@tabler/icons-react": "^3.34.0",
     "axios": "1.8.4",
+    "critters": "^0.0.23",
     "framer-motion": "12.6.5",
     "lodash-es": "4.17.21",
     "next": "15.3.0",
