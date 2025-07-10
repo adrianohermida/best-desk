@@ -13,13 +13,21 @@ const cspHeader = `
 `;
 
 const nextConfig = {
-  webpack: (config) => {
-    // Configurar alias para resolver caminhos do admin
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@admin': require('path').resolve(__dirname, '../admin/src')
-    };
-    return config;
+  async rewrites() {
+    return [
+      {
+        source: '/admin/dashboard',
+        destination: '/admin-proxy/dashboard'
+      },
+      {
+        source: '/admin/analytics',
+        destination: '/admin-proxy/analytics'
+      },
+      {
+        source: '/admin/users',
+        destination: '/admin-proxy/users'
+      }
+    ];
   },
   modularizeImports: {
     '@mui/material': {
