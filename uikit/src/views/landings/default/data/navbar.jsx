@@ -21,14 +21,14 @@ const dashboardMegamenu = {
       {
         title: 'Main',
         itemsList: [
-          { title: 'Dashboard', link: { href: '/admin/dashboard', ...linkProps } },
-          { title: 'Analytics', link: { href: '/admin/analytics', ...linkProps } }
+          { title: 'Dashboard', link: { href: '/admin/dashboard' } },
+          { title: 'Analytics', link: { href: '/admin/analytics' } }
         ]
       },
       {
         title: 'Management',
         itemsList: [
-          { title: 'Users', link: { href: '/admin/users', ...linkProps } },
+          { title: 'Users', link: { href: '/admin/users' } },
           { title: 'Content', status: 'Coming Soon' },
           { title: 'Settings', status: 'Coming Soon' }
         ]
