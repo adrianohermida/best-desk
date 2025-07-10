@@ -58,3 +58,14 @@ export let ViewMode;
   ViewMode['MONTHLY'] = 'Monthly';
   ViewMode['YEARLY'] = 'Yearly';
 })(ViewMode || (ViewMode = {}));
+
+//@admin.js - Avatar size enum for admin components
+export let AvatarSize;
+
+(function (AvatarSize) {
+  AvatarSize['XS'] = 'xs';
+  AvatarSize['SM'] = 'sm';
+  AvatarSize['MD'] = 'md';
+  AvatarSize['LG'] = 'lg';
+  AvatarSize['XL'] = 'xl';
+})(AvatarSize || (AvatarSize = {}));
