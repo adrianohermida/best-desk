@@ -1,31 +1,70 @@
-'use client';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import Stack from '@mui/material/Stack';
+// @mui
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Box from '@mui/material/Box';
 
 // @project
-import NavCard from './NavCard';
-import ResponsiveDrawer from './ResponsiveDrawer';
-
 import { useGetMenuMaster } from '@/states/menu';
-import { MINI_DRAWER_WIDTH } from '@/config';
-import SimpleBar from '@/components/third-party/SimpleBar';
 
-/***************************  DRAWER - CONTENT  ***************************/
+// @assets
+import { IconDashboard, IconChartBar, IconUsers, IconUser, IconSettings, IconShield, IconHome } from '@tabler/icons-react';
+
+// @next
+import { useRouter, usePathname } from 'next/navigation';
+
+/***************************  DRAWER CONTENT  ***************************/
+
+const menuItems = [
+  { title: 'Back to Site', href: '/', icon: IconHome },
+  { title: 'Dashboard', href: '/admin/dashboard', icon: IconDashboard },
+  { title: 'Analytics', href: '/admin/analytics', icon: IconChartBar },
+  { title: 'Users', href: '/admin/users', icon: IconUsers },
+  { title: 'Profile', href: '/profile', icon: IconUser },
+  { title: 'Settings', href: '/settings', icon: IconSettings },
+  { title: 'Security', href: '/settings/security', icon: IconShield }
+];
 
 export default function DrawerContent() {
-  const upMD = useMediaQuery((theme) => theme.breakpoints.up('lg'));
-
   const { menuMaster } = useGetMenuMaster();
   const drawerOpen = menuMaster.isDashboardDrawerOpened;
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const contentHeight = `calc(100vh - ${MINI_DRAWER_WIDTH}px)`;
+  const handleNavigation = (href) => {
+    router.push(href);
+  };
 
   return (
-    <SimpleBar sx={{ height: contentHeight }}>
-      <Stack sx={{ minHeight: contentHeight, px: !drawerOpen && upMD ? 0 : 2, justifyContent: 'space-between' }}>
-        <ResponsiveDrawer />
-        <NavCard />
-      </Stack>
-    </SimpleBar>
+    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+      <List>
+        {menuItems.map((item, index) => (
+          <ListItem key={index} disablePadding sx={{ display: 'block' }}>
+            <ListItemButton
+              onClick={() => handleNavigation(item.href)}
+              selected={pathname === item.href}
+              sx={{
+                minHeight: 48,
+                justifyContent: drawerOpen ? 'initial' : 'center',
+                px: 2.5
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: drawerOpen ? 3 : 'auto',
+                  justifyContent: 'center'
+                }}
+              >
+                <item.icon size={20} />
+              </ListItemIcon>
+              <ListItemText primary={item.title} sx={{ opacity: drawerOpen ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
   );
 }
