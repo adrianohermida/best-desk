@@ -16,29 +16,42 @@ const dashboardMegamenu = {
   megaMenu: {
     type: MegaMenuType.MEGAMENU5,
     toggleBtn: { children: 'Dashboard' },
-    popperWidth: 600,
+    popperWidth: 700,
     menuItems: [
       {
-        title: 'Main',
+        title: 'Admin Dashboard',
         itemsList: [
+          { title: 'Admin Home', link: { href: '/admin' } },
           { title: 'Dashboard', link: { href: '/admin/dashboard' } },
-          { title: 'Analytics', link: { href: '/admin/analytics' } }
+          { title: 'Analytics', link: { href: '/admin/analytics' } },
+          { title: 'Users Management', link: { href: '/admin/users' } }
         ]
       },
       {
-        title: 'Management',
-        itemsList: [
-          { title: 'Users', link: { href: '/admin/users' } },
-          { title: 'Content', status: 'Coming Soon' },
-          { title: 'Settings', status: 'Coming Soon' }
-        ]
-      },
-      {
-        title: 'Account',
+        title: 'User Account',
         itemsList: [
           { title: 'Profile', link: { href: '/profile' } },
           { title: 'Settings', link: { href: '/settings' } },
           { title: 'Security', link: { href: '/settings/security' } }
+        ]
+      },
+      {
+        title: 'Auth Pages',
+        itemsList: [
+          { title: 'Login', link: { href: '/sections/auth/login' } },
+          { title: 'Register', link: { href: '/sections/auth/register' } },
+          { title: 'Forgot Password', link: { href: '/sections/auth/forgot-password' } },
+          { title: 'OTP Verification', link: { href: '/sections/auth/otp-verification' } },
+          { title: 'New Password', link: { href: '/sections/auth/new-password' } }
+        ]
+      },
+      {
+        title: 'Future Development',
+        itemsList: [
+          { title: 'Content Management', status: 'Priority' },
+          { title: 'Reports & Analytics', status: 'Priority' },
+          { title: 'Team Management', status: 'Planned' },
+          { title: 'API Documentation', status: 'Planned' }
         ]
       }
     ]
