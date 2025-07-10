@@ -5,25 +5,44 @@ export const emailSchema = {
 
 export const passwordSchema = {
   required: 'Password is required',
-  minLength: { value: 8, message: 'Password must be at least 8 characters' }
+  minLength: { value: 8, message: 'Password must be at least 8 characters' },
+  validate: {
+    noSpaces: (value) => !/\s/.test(value) || 'Password cannot contain spaces',
+    hasUpperCase: (value) => /[A-Z]/.test(value) || 'Password must have at least one uppercase letter',
+    hasNumber: (value) => /[0-9]/.test(value) || 'Password must have at least one number',
+    hasSpecialChar: (value) => /[!@#$%^&*(),.?":{}|<>]/.test(value) || 'Password must have at least one special character'
+  }
 };
 
 export const firstNameSchema = {
   required: 'First name is required',
-  pattern: { value: /^[a-zA-Z\s]+$/, message: 'Invalid first name' }
+  pattern: { value: /^[a-zA-Z\s]+$/, message: 'Invalid first name' },
+  validate: {
+    trim: (value) => {
+      const trimmedValue = value.trim();
+      return trimmedValue.length > 0 || 'First name cannot be empty or contain only spaces';
+    }
+  },
+  onBlur: (e) => {
+    e.target.value = e.target.value.trim();
+  }
 };
 
 export const lastNameSchema = {
   required: 'Last name is required',
-  pattern: { value: /^[a-zA-Z\s]+$/, message: 'Invalid last name' }
+  pattern: { value: /^[a-zA-Z\s]+$/, message: 'Invalid last name' },
+  validate: {
+    trim: (value) => {
+      const trimmedValue = value.trim();
+      return trimmedValue.length > 0 || 'Last name cannot be empty or contain only spaces';
+    }
+  },
+  onBlur: (e) => {
+    e.target.value = e.target.value.trim();
+  }
 };
 
-export const phoneSchema = {
-  required: 'Phone number is required',
-  pattern: { value: /^[0-9()-.\s]{7,15}$/, message: 'Invalid phone number' }
-};
-
-export const otpSchema = {
-  required: 'OTP is required',
-  minLength: { value: 6, message: 'OTP must be exactly 6 characters' }
+export const contactSchema = {
+  required: 'Contact number is required',
+  pattern: { value: /^[0-9()\-\.]{7,15}$/, message: 'Invalid contact number' }
 };
