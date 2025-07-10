@@ -8,35 +8,16 @@ import defaultConfig from '@/config';
 import useLocalStorage from '@/hooks/useLocalStorage';
 
 // @initial
-const initialState = {
-  ...defaultConfig,
-  onChangeCurrentTheme: () => {}
-};
+const initialState = { ...defaultConfig };
 
-/***************************  CONFIG CONTEXT & PROVIDER  ***************************/
+/***************************  CONFIG - CONTEXT & PROVIDER  ***************************/
 
 const ConfigContext = createContext(initialState);
 
 function ConfigProvider({ children }) {
-  const [config, setConfig] = useLocalStorage('sass-able-react-mui-next-js-free', initialState);
+  const [config] = useLocalStorage('sass-able-react-mui-admin-next-ts', initialState);
 
-  const onChangeCurrentTheme = (currentTheme) => {
-    setConfig({
-      ...config,
-      currentTheme
-    });
-  };
-
-  return (
-    <ConfigContext
-      value={{
-        ...config,
-        onChangeCurrentTheme
-      }}
-    >
-      {children}
-    </ConfigContext>
-  );
+  return <ConfigContext value={{ ...config }}>{children}</ConfigContext>;
 }
 
 export { ConfigProvider, ConfigContext };
