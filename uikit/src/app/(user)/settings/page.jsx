@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import {
   Box,
   Container,
@@ -13,18 +14,18 @@ import {
   ListItemButton,
   Divider
 } from '@mui/material';
-import {
-  IconUser,
-  IconShield,
-  IconCreditCard,
-  IconBell,
-  IconPalette,
-  IconLanguage,
-  IconDownload,
-  IconTrash,
-  IconChevronRight
-} from '@tabler/icons-react';
 import Link from 'next/link';
+
+// Dynamic imports for icons to reduce initial bundle size
+const IconUser = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconUser })));
+const IconShield = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconShield })));
+const IconCreditCard = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconCreditCard })));
+const IconBell = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconBell })));
+const IconPalette = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconPalette })));
+const IconLanguage = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconLanguage })));
+const IconDownload = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconDownload })));
+const IconTrash = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconTrash })));
+const IconChevronRight = dynamic(() => import('@tabler/icons-react').then((mod) => ({ default: mod.IconChevronRight })));
 
 const settingsCategories = [
   {
