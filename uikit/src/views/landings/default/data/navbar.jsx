@@ -7,6 +7,43 @@ import { MegaMenuType } from '@/enum';
 /***************************  DEFAULT - NAVBAR  ***************************/
 
 const linkProps = { target: '_blank', rel: 'noopener noreferrer' };
+
+/***************************  DASHBOARD MEGAMENU  ***************************/
+
+const dashboardMegamenu = {
+  id: 'dashboard',
+  title: 'Dashboard',
+  megaMenu: {
+    type: MegaMenuType.MEGAMENU5,
+    toggleBtn: { children: 'Dashboard' },
+    popperWidth: 600,
+    menuItems: [
+      {
+        title: 'Main',
+        itemsList: [
+          { title: 'Dashboard', link: { href: '/admin/dashboard', ...linkProps } },
+          { title: 'Analytics', link: { href: '/admin/analytics', ...linkProps } }
+        ]
+      },
+      {
+        title: 'Management',
+        itemsList: [
+          { title: 'Users', link: { href: '/admin/users', ...linkProps } },
+          { title: 'Content', status: 'Coming Soon' },
+          { title: 'Settings', status: 'Coming Soon' }
+        ]
+      },
+      {
+        title: 'Account',
+        itemsList: [
+          { title: 'Profile', link: { href: '/profile' } },
+          { title: 'Settings', link: { href: '/settings' } },
+          { title: 'Security', link: { href: '/settings/security' } }
+        ]
+      }
+    ]
+  }
+};
 export const navbar = {
   customization: true,
   secondaryBtn: {
