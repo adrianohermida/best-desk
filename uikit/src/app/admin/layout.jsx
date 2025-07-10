@@ -1,7 +1,17 @@
 import PropTypes from 'prop-types';
 
-export default function AdminLayout({ children }) {
-  return <>{children}</>;
+// @next
+import dynamic from 'next/dynamic';
+
+// @project - Usando o layout admin local
+const AdminLayout = dynamic(() => import('@/layouts/AdminLayout'), {
+  loading: () => <div>Carregando Layout Admin...</div>
+});
+
+/***************************  LAYOUT - ADMIN  ***************************/
+
+export default function Layout({ children }) {
+  return <AdminLayout>{children}</AdminLayout>;
 }
 
-AdminLayout.propTypes = { children: PropTypes.any };
+Layout.propTypes = { children: PropTypes.any };
