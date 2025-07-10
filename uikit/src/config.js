@@ -14,6 +14,7 @@ export let Themes;
 
 (function (Themes) {
   Themes['THEME_HOSTING'] = 'hosting';
+  Themes['THEME_AI'] = 'ai';
 })(Themes || (Themes = {}));
 
 export let ThemeMode;
