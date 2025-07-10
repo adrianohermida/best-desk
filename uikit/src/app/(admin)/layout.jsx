@@ -1,5 +1,15 @@
-import SimpleAdminLayout from '@/admin/layouts/SimpleAdminLayout';
+import PropTypes from 'prop-types';
 
-export default function AdminLayoutWrapper({ children }) {
-  return <SimpleAdminLayout>{children}</SimpleAdminLayout>;
+// @next
+import dynamic from 'next/dynamic';
+
+// @project
+const AdminLayout = dynamic(() => import('@/layouts/AdminLayout'));
+
+/***************************  LAYOUT - ADMIN  ***************************/
+
+export default function Layout({ children }) {
+  return <AdminLayout>{children}</AdminLayout>;
 }
+
+Layout.propTypes = { children: PropTypes.any };
