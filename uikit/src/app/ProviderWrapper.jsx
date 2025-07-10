@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
 // @project
-import SimpleOptimizedLoader from '@/components/SimpleOptimizedLoader';
+import Loader from '@/components/Loader';
 import ThemeProvider from '@/components/ThemeProvider';
 import { ConfigProvider } from '@/contexts/ConfigContext';
-import { AuthProvider } from '@/contexts/AuthContext';
 
 /***************************  COMMON - CONFIG, THEME  ***************************/
 
@@ -15,12 +14,7 @@ export default function ProviderWrapper({ children }) {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    // Loader mais rápido para melhor UX
-    const timer = setTimeout(() => {
-      setLoader(false);
-    }, 300); // Otimizado para 300ms
-
-    return () => clearTimeout(timer);
+    setLoader(false);
   }, []);
 
   /**
@@ -33,9 +27,7 @@ export default function ProviderWrapper({ children }) {
   return (
     <ConfigProvider>
       <ThemeProvider>
-        <AuthProvider>
-          <main>{loader ? <SimpleOptimizedLoader fullHeight showText /> : children}</main>
-        </AuthProvider>
+        <main>{loader ? <Loader /> : children}</main>
       </ThemeProvider>
     </ConfigProvider>
   );
