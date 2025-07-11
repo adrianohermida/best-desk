@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 // @project
-import AdminLayout from '@/layouts/admin/AdminLayout';
+import AdminLayout from '../../layouts/admin/AdminLayout';
 
 /***************************  LAYOUT - ADMIN (PRESERVING ORIGINAL TEMPLATE)  ***************************/
 
