@@ -1,19 +1,26 @@
 import PropTypes from 'prop-types';
-// @third-party
+
+// @tabler/icons-react
 import * as TablerIcons from '@tabler/icons-react';
 
-/***************************  DYNAMIC - TABLER ICONS  ***************************/
+/***************************  DYNAMIC ICON  ***************************/
 
-export default function DynamicIcon({ name, size = 24, color = 'black', stroke = 2 }) {
-  // Dynamically get the icon component based on the `name` prop
-  const IconComponent = TablerIcons[name];
+export default function DynamicIcon({ name, size = 16, ...other }) {
+  // Convert name to proper component name (e.g., 'dashboard' -> 'IconDashboard')
+  const iconName = `Icon${name.charAt(0).toUpperCase() + name.slice(1)}`;
 
-  // If the provided `name` does not match any icon in TablerIcons, return null to avoid rendering errors
+  // Get the icon component from Tabler Icons
+  const IconComponent = TablerIcons[iconName];
+
   if (!IconComponent) {
-    return null;
+    // Return a default icon if the requested icon is not found
+    return <TablerIcons.IconQuestionMark size={size} {...other} />;
   }
 
-  return <IconComponent {...{ size, color, stroke }} />;
+  return <IconComponent size={size} {...other} />;
 }
 
-DynamicIcon.propTypes = { name: PropTypes.any, size: PropTypes.number, color: PropTypes.string, stroke: PropTypes.number };
+DynamicIcon.propTypes = {
+  name: PropTypes.string.isRequired,
+  size: PropTypes.number
+};
