@@ -2,10 +2,10 @@
 import dynamic from 'next/dynamic';
 
 // @project
-const AdminDashboard = dynamic(() => import('@/views/admin/dashboard'));
+const DashboardSimple = dynamic(() => import('@/views/admin/DashboardSimple'));
 
 /***************************  ADMIN - DASHBOARD  ***************************/
 
 export default function Dashboard() {
-  return <AdminDashboard />;
+  return <DashboardSimple />;
 }
