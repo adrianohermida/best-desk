@@ -69,3 +69,12 @@ export let AvatarSize;
   AvatarSize['LG'] = 'lg';
   AvatarSize['XL'] = 'xl';
 })(AvatarSize || (AvatarSize = {}));
+
+//@progress.js - Linear progress type enum
+export let LinearProgressType;
+
+(function (LinearProgressType) {
+  LinearProgressType['LIGHT'] = 'light';
+  LinearProgressType['DARK'] = 'dark';
+  LinearProgressType['DEFAULT'] = 'default';
+})(LinearProgressType || (LinearProgressType = {}));
