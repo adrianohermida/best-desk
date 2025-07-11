@@ -23,12 +23,12 @@ import {
   Slider,
   Alert
 } from '@mui/material';
-import { IconPalette, IconMoon, IconSun, IconMonitor, IconEye, IconType, IconLayout } from '@tabler/icons-react';
+import { IconPalette, IconMoon, IconSun, IconDeviceDesktop, IconEye, IconTypography, IconLayout } from '@tabler/icons-react';
 
 const themeOptions = [
   { id: 'light', name: 'Light', icon: <IconSun size={24} />, description: 'Clean and bright interface' },
   { id: 'dark', name: 'Dark', icon: <IconMoon size={24} />, description: 'Easy on the eyes in low light' },
-  { id: 'auto', name: 'Auto', icon: <IconMonitor size={24} />, description: 'Matches your system preference' }
+  { id: 'auto', name: 'Auto', icon: <IconDeviceDesktop size={24} />, description: 'Matches your system preference' }
 ];
 
 const colorSchemes = [
@@ -204,7 +204,7 @@ export default function AppearancePage() {
           <Grid item xs={12} md={6}>
             <Paper sx={{ p: 3, height: '100%' }}>
               <Typography variant="h6" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <IconType size={24} />
+                <IconTypography size={24} />
                 Typography
               </Typography>
 
