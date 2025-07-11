@@ -11,13 +11,13 @@ import AnalyticsTopRef from '@/sections/dashboard/AnalyticsTopRef';
 export default function AnalyticsOverview() {
   return (
     <Grid container spacing={{ xs: 2, md: 3 }}>
-      <Grid size={12}>
+      <Grid xs={12}>
         <AnalyticsOverviewCard />
       </Grid>
-      <Grid size={12}>
+      <Grid xs={12}>
         <AnalyticsOverviewChart />
       </Grid>
-      <Grid size={12}>
+      <Grid xs={12}>
         <AnalyticsTopRef />
       </Grid>
     </Grid>
