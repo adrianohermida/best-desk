@@ -157,39 +157,55 @@ export const pagesMegamenu = {
   megaMenu: {
     type: MegaMenuType.MEGAMENU5,
     toggleBtn: { children: 'Pages' },
-    popperWidth: 860,
+    popperWidth: 1100,
     menuItems: [
       {
-        title: 'General',
+        title: 'General Pages',
         itemsList: [
-          { title: 'About', link: { href: 'https://stage.saasable.io/about', ...linkProps } },
-          { title: 'Career', status: 'Pro' },
-          { title: 'Privacy Policy', link: { href: PAGE_PATH.privacyPolicyPage, ...linkProps } },
-          { title: 'Contact Us', status: 'Pro' },
-          { title: 'FAQs', status: 'Pro' },
-          { title: 'Pricing', status: 'Pro' }
+          { title: 'About', link: { href: PAGE_PATH.about } },
+          { title: 'Career', link: { href: PAGE_PATH.careerPage } },
+          { title: 'Contact Us', link: { href: PAGE_PATH.contactPage } },
+          { title: 'Contact Us (Section)', link: { href: PAGE_PATH.contactUs } },
+          { title: 'Privacy Policy', link: { href: PAGE_PATH.privacyPolicyPage } },
+          { title: 'Terms & Conditions', link: { href: PAGE_PATH.termsConditionPage } },
+          { title: 'FAQs', link: { href: PAGE_PATH.faq } },
+          { title: 'Pricing', link: { href: PAGE_PATH.pricing } }
         ]
       },
       {
-        title: 'Maintenance',
+        title: 'Auth Pages (Sections)',
         itemsList: [
-          { title: 'Coming Soon', status: 'Pro' },
-          { title: 'Error 404', link: { href: PRIVIEW_PATH.error404, ...linkProps } },
-          { title: 'Error 500', link: { href: PRIVIEW_PATH.error500, ...linkProps } },
-          { title: 'Under Maintenance', status: 'Pro' }
+          { title: 'Login', link: { href: PAGE_PATH.login } },
+          { title: 'Register', link: { href: PAGE_PATH.register } },
+          { title: 'Forgot Password', link: { href: PAGE_PATH.forgotPassword } },
+          { title: 'New Password', link: { href: PAGE_PATH.newPassword } },
+          { title: 'OTP Verification', link: { href: PAGE_PATH.otpVerification } }
         ]
       },
       {
-        title: 'External',
+        title: 'Admin Dashboard',
+        itemsList: [
+          { title: 'Dashboard', link: { href: PAGE_PATH.adminDashboard } },
+          { title: 'Sample Page', link: { href: PAGE_PATH.adminSamplePage } },
+          { title: 'Admin Login', link: { href: PAGE_PATH.adminLogin } }
+        ]
+      },
+      {
+        title: 'Error & Maintenance',
+        itemsList: [
+          { title: 'Coming Soon', link: { href: PAGE_PATH.comingSoon } },
+          { title: 'Error 404', link: { href: PAGE_PATH.error404 } },
+          { title: 'Error 500', link: { href: PAGE_PATH.error500 } },
+          { title: 'Under Maintenance', link: { href: PAGE_PATH.underMaintenance } }
+        ]
+      },
+      {
+        title: 'External Links',
         itemsList: [
           { title: 'Blog', link: { href: 'https://blog.saasable.io/', ...linkProps } },
           { title: 'Documentation', link: { href: DOCS_URL, ...linkProps } },
           { title: 'Support', link: { href: branding.company.socialLink.support, ...linkProps } },
-          {
-            title: 'Discord',
-            link: { href: branding.company.socialLink.discord, ...linkProps }
-          },
-          { title: 'Terms & Conditions', link: { href: 'https://mui.com/store/terms/', ...linkProps } }
+          { title: 'Discord', link: { href: branding.company.socialLink.discord, ...linkProps } }
         ]
       }
     ],
