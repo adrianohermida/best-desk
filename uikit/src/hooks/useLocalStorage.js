@@ -4,8 +4,15 @@ import { useState, useEffect } from 'react';
 
 export default function useLocalStorage(key, defaultValue) {
   const [value, setValue] = useState(() => {
-    const storedValue = typeof window !== 'undefined' ? localStorage.getItem(key) : null;
-    return storedValue === null ? defaultValue : JSON.parse(storedValue);
+    if (typeof window === 'undefined') return defaultValue;
+
+    try {
+      const storedValue = localStorage.getItem(key);
+      return storedValue === null ? defaultValue : JSON.parse(storedValue);
+    } catch (error) {
+      console.warn(`Error parsing localStorage value for key "${key}":`, error);
+      return defaultValue;
+    }
   });
 
   useEffect(() => {
