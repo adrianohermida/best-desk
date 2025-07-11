@@ -61,7 +61,13 @@ export const PAGE_PATH = {
   faqPage: '/faq',
   pricingPage: '/pricing',
   privacyPolicyPage: '/privacy-policy',
-  termsConditionPage: '/terms-condition'
+  termsConditionPage: '/terms-condition',
+
+  // admin pages path
+  adminDashboard: path([ADMIN_INTERNAL_PATH, 'dashboard']),
+  adminSamplePage: path([ADMIN_INTERNAL_PATH, 'sample-page']),
+  adminLogin: path([ADMIN_INTERNAL_PATH, 'auth', 'login']),
+  adminRegister: path([ADMIN_INTERNAL_PATH, 'auth', 'register'])
 };
 
 export const PRIVIEW_PATH = {
