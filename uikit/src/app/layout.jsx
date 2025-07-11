@@ -10,6 +10,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 // @project
 import ProviderWrapper from './ProviderWrapper';
 import { mainMetadata } from '@/metadata';
+import PerformanceMonitor from '@/components/PerformanceMonitor';
 
 const gaId = process.env.NEXT_PUBLIC_ANALYTICS_ID || '';
 
