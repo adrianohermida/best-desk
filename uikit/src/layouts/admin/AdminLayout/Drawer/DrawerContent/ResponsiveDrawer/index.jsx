@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 // @project
-import menuItems from '@/menu';
+import menuItems from '../../../../../../admin/data/menu';
 import NavGroup from './NavGroup';
 
 /***************************  DRAWER CONTENT - RESPONSIVE DRAWER  ***************************/
