@@ -11,8 +11,8 @@ import DrawerHeader from './DrawerHeader';
 import DrawerContent from './DrawerContent';
 import MiniDrawerStyled from './MiniDrawerStyled';
 
-import { handlerDrawerOpen, useGetMenuMaster } from '@/states/menu';
-import { DRAWER_WIDTH } from '@/config';
+import { handlerDrawerOpen, useGetMenuMaster } from '@/states/admin/menu';
+import { DRAWER_WIDTH } from '@/config/admin';
 
 /***************************  ADMIN LAYOUT - DRAWER  ***************************/
 
