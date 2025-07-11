@@ -6,7 +6,7 @@ import AdminLayoutSimple from '@/layouts/admin/AdminLayoutSimple';
 /***************************  LAYOUT - ADMIN (PRESERVING ORIGINAL TEMPLATE)  ***************************/
 
 export default function Layout({ children }) {
-  return <AdminLayoutOriginal>{children}</AdminLayoutOriginal>;
+  return <AdminLayoutSimple>{children}</AdminLayoutSimple>;
 }
 
 Layout.propTypes = { children: PropTypes.any };
