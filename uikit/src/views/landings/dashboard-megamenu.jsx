@@ -62,15 +62,15 @@ export const dashboardMegamenu = {
         itemsList: [
           {
             title: 'Cores',
-            link: { href: 'http://localhost:3001/utils/color', ...linkProps }
+            link: { href: '/admin/utils/color' }
           },
           {
             title: 'Sombras',
-            link: { href: 'http://localhost:3001/utils/shadow', ...linkProps }
+            link: { href: '/admin/utils/shadow' }
           },
           {
             title: 'Tipografia',
-            link: { href: 'http://localhost:3001/utils/typography', ...linkProps }
+            link: { href: '/admin/utils/typography' }
           }
         ]
       },
