@@ -28,14 +28,14 @@ function ConfigProvider({ children }) {
   };
 
   return (
-    <ConfigContext
+    <ConfigContext.Provider
       value={{
         ...config,
         onChangeCurrentTheme
       }}
     >
       {children}
-    </ConfigContext>
+    </ConfigContext.Provider>
   );
 }
 
