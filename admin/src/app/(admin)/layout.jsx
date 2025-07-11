@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 
-// @next
-import dynamic from 'next/dynamic';
-
 // @project
-const AdminLayout = dynamic(() => import('@/layouts/AdminLayout'));
+import AdminLayout from '@/layouts/AdminLayout';
 
 /***************************  LAYOUT - ADMIN  ***************************/
 
