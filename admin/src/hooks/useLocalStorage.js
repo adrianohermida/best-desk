@@ -31,10 +31,17 @@ export default function useLocalStorage(key, defaultValue) {
   });
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     // Define a listener to update the state when the same key in localStorage changes
     const listener = (e) => {
-      if (typeof window !== 'undefined' && e.storageArea === localStorage && e.key === key) {
-        setValue(e.newValue ? JSON.parse(e.newValue) : e.newValue);
+      if (e.storageArea === localStorage && e.key === key) {
+        try {
+          setValue(e.newValue ? JSON.parse(e.newValue) : defaultValue);
+        } catch (error) {
+          console.warn(`Error parsing localStorage change for key "${key}":`, error);
+          setValue(defaultValue);
+        }
       }
     };
     window.addEventListener('storage', listener);
