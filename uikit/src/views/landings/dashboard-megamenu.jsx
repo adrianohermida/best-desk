@@ -79,11 +79,11 @@ export const dashboardMegamenu = {
         itemsList: [
           {
             title: 'Login',
-            link: { href: 'http://localhost:3001/auth/login', ...linkProps }
+            link: { href: '/admin/auth/login' }
           },
           {
             title: 'Registro',
-            link: { href: 'http://localhost:3001/auth/register', ...linkProps }
+            link: { href: '/admin/auth/register' }
           }
         ]
       }
