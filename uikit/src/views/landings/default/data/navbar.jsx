@@ -11,17 +11,22 @@ const linkProps = { target: '_blank', rel: 'noopener noreferrer' };
 export const navbar = {
   customization: true,
   secondaryBtn: {
-    children: <SvgIcon name="tabler-login" color="primary.main" size={18} />,
+    children: 'Login',
     href: FREEBIES_URL,
-    ...linkProps,
-    sx: { minWidth: 40, width: 40, height: 40, p: 0 }
+    variant: 'outlined',
+    sx: { minWidth: 80, px: 2, py: 1 }
   },
-  primaryBtn: { children: 'Buy Now', href: BUY_NOW_URL, ...linkProps },
+  primaryBtn: {
+    children: 'Register',
+    href: BUY_NOW_URL,
+    variant: 'contained',
+    sx: { minWidth: 90, px: 2, py: 1 }
+  },
   navItems: [
     { id: 'home', title: 'Home', link: '/' },
     landingMegamenu,
     { id: 'components', title: 'Blocks', link: SECTION_PATH },
-    { id: 'dashboard', title: 'Dashboard', link: ADMIN_PATH, ...linkProps },
+    dashboardMegamenu,
     pagesMegamenu,
     { id: 'docs', title: 'Docs', link: DOCS_URL, ...linkProps, icon: 'tabler-pin-invoke' }
   ]
