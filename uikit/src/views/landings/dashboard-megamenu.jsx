@@ -27,7 +27,7 @@ function dashboardBannerData() {
           Acesse o dashboard com ferramentas de administração, analytics e gestão de conteúdo.
         </Typography>
       </Stack>
-      <Button href="http://localhost:3001/dashboard" variant="contained" sx={{ minWidth: 120, px: { xs: 2 }, py: 1.25 }} {...linkProps}>
+      <Button href="/admin/dashboard" variant="contained" sx={{ minWidth: 120, px: { xs: 2 }, py: 1.25 }}>
         Abrir Dashboard
       </Button>
     </Stack>
