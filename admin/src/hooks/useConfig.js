@@ -1,4 +1,4 @@
-import { use } from 'react';
+import { useContext } from 'react';
 
 // @project
 import { ConfigContext } from '@/contexts/ConfigContext';
@@ -17,5 +17,5 @@ import { ConfigContext } from '@/contexts/ConfigContext';
  */
 
 export default function useConfig() {
-  return use(ConfigContext);
+  return useContext(ConfigContext);
 }
