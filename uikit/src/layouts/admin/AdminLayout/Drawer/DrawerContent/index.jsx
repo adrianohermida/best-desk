@@ -6,9 +6,9 @@ import Stack from '@mui/material/Stack';
 import NavCard from './NavCard';
 import ResponsiveDrawer from './ResponsiveDrawer';
 
-import { useGetMenuMaster } from '@/states/admin/menu';
-import { MINI_DRAWER_WIDTH } from '@/config/admin';
-import SimpleBar from '@/components/admin/third-party/SimpleBar';
+import { useGetMenuMaster } from '../../../../../admin/hooks/useMenuState';
+import { MINI_DRAWER_WIDTH } from '../../../../../admin/config';
+import SimpleBar from '../../../../../components/admin/third-party/SimpleBar';
 
 /***************************  DRAWER - CONTENT  ***************************/
 
