@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic';
 
 // @project
-const AdminLogin = dynamic(() => import('@/views/admin/auth/login'));
+const AdminLogin = dynamic(() => import('../../../../views/admin/auth/login'));
 
 /***************************  ADMIN AUTH - LOGIN  ***************************/
 
