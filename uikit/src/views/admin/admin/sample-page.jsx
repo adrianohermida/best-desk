@@ -2,7 +2,7 @@
 import Typography from '@mui/material/Typography';
 
 // @project
-import ComponentsWrapper from '../../../components/ComponentsWrapper';
+import ComponentsWrapper from '../../../components/admin/ComponentsWrapper';
 import PresentationCard from '../../../components/cards/PresentationCard';
 
 /***************************  SAMPLE PAGE  ***************************/
