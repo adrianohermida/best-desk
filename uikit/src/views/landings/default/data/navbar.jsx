@@ -15,6 +15,7 @@ export const navbar = {
     sx: { minWidth: 40, width: 40, height: 40, p: 0 }
   },
   primaryBtn: { children: 'Buy Now', href: BUY_NOW_URL, ...linkProps },
+  adminAccess: <AdminAccessButton />,
   navItems: [
     { id: 'home', title: 'Home', link: '/' },
     landingMegamenu,
