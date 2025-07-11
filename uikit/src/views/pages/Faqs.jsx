@@ -84,7 +84,7 @@ export default function Faqs() {
           <Stack sx={{ gap: 2, maxWidth: 800, mx: 'auto', width: '100%' }}>
             {faqsData.map((faq, index) => (
               <Accordion key={index}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <AccordionSummary expandIcon={<Typography>▼</Typography>}>
                   <Typography variant="h6">{faq.question}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
