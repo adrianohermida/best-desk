@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 
 // @project
-import { DRAWER_WIDTH } from '@/config/admin';
+import { DRAWER_WIDTH } from '../../../../admin/config';
 
 /***************************  HEADER - APP BAR STYLED  ***************************/
 
