@@ -12,11 +12,11 @@ import Box from '@mui/material/Box';
 // @project
 import Drawer from './Drawer';
 import Header from './Header';
-import { handlerDrawerOpen, useGetMenuMaster } from '@/states/admin/menu';
-import Breadcrumbs from '@/components/admin/Breadcrumbs';
-import Loader from '@/components/admin/Loader';
+import { handlerDrawerOpen, useGetMenuMaster } from '../../../admin/hooks/useMenuState';
+import Breadcrumbs from '../../../components/admin/Breadcrumbs';
+import Loader from '../../../components/admin/Loader';
 
-import { DRAWER_WIDTH } from '@/config/admin';
+import { DRAWER_WIDTH } from '../../../admin/config';
 
 /***************************  ADMIN LAYOUT (ORIGINAL TEMPLATE)  ***************************/
 
