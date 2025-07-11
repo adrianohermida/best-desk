@@ -30,6 +30,7 @@ export default function RootLayout({ children }) {
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body>
+        <PerformanceMonitor />
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ProviderWrapper>{children}</ProviderWrapper>
         </AppRouterCacheProvider>
