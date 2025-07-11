@@ -1,6 +1,7 @@
 // @project
 import { landingMegamenu, pagesMegamenu } from '../../common-data';
 import SvgIcon from '@/components/SvgIcon';
+import AdminAccessButton from '@/components/AdminAccessButton';
 import { SECTION_PATH, ADMIN_PATH, BUY_NOW_URL, DOCS_URL, FREEBIES_URL } from '@/path';
 
 /***************************  DEFAULT - NAVBAR  ***************************/
