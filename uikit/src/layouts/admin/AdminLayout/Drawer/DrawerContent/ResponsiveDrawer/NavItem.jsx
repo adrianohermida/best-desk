@@ -13,8 +13,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
 // @project
-import { handlerActiveItem, handlerDrawerOpen, useGetMenuMaster } from '@/states/menu';
-import DynamicIcon from '@/components/DynamicIcon';
+import { handlerActiveItem, handlerDrawerOpen, useGetMenuMaster } from '../../../../../../admin/hooks/useMenuState';
+import DynamicIcon from '../../../../../../components/admin/DynamicIcon';
 
 /***************************  RESPONSIVE DRAWER - ITEM  ***************************/
 
