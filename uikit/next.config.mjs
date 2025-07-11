@@ -14,12 +14,24 @@ const cspHeader = `
 
 const nextConfig = {
   allowedDevOrigins: ['*.fly.dev'],
+  // Performance optimizations
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production'
+  },
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: ['@mui/material', '@mui/lab', 'lodash-es']
+  },
   modularizeImports: {
     '@mui/material': {
       transform: '@mui/material/{{member}}'
     },
     '@mui/lab': {
       transform: '@mui/lab/{{member}}'
+    },
+    'lodash-es': {
+      transform: 'lodash-es/{{member}}'
     }
   },
   images: {
