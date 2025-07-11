@@ -1,8 +1,5 @@
-// @next
-import dynamic from 'next/dynamic';
-
 // @project
-const DashboardPage = dynamic(() => import('@/views/admin/dashboard'));
+import DashboardPage from '@/views/admin/dashboard';
 
 /***************************  DASHBOARD PAGE  ***************************/
 
