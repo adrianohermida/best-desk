@@ -36,8 +36,28 @@ npm run dev:both
 
 ## Acessar os Projetos
 
-- **Site Principal (UIKit)**: http://localhost:3000
-- **Admin Dashboard**: http://localhost:3001/dashboard
+### Site Principal (UIKit) - http://localhost:3000
+
+- **Homepage**: http://localhost:3000
+- **Páginas básicas**: `/contact`, `/privacy-policy`, `/terms-condition`
+- **Templates**: http://localhost:3000/templates
+- **Seções demonstrativas**: http://localhost:3000/sections
+- **Blocos reutilizáveis**: http://localhost:3000/blocks
+- **Builder.io**: http://localhost:3000/builder
+
+**Total: 60+ rotas demonstrativas disponíveis**
+
+### Admin Dashboard - http://localhost:3001
+
+- **Dashboard**: http://localhost:3001/dashboard
+- **Página de Exemplo**: http://localhost:3001/sample-page
+- **Utilitários de Design**:
+  - Cores: http://localhost:3001/utils/color
+  - Sombras: http://localhost:3001/utils/shadow
+  - Tipografia: http://localhost:3001/utils/typography
+- **Autenticação**:
+  - Login: http://localhost:3001/auth/login
+  - Registro: http://localhost:3001/auth/register
 
 ## Problemas Corrigidos
 
