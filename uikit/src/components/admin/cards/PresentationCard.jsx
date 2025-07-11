@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 // @project
-import MainCard from '@/components/MainCard';
+import MainCard from '../MainCard';
 
 /***************************  PRESENTATION CARD  ***************************/
 
