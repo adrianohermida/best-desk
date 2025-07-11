@@ -1,0 +1,15 @@
+{
+  "name": "saasable-multiproject",
+  "version": "1.0.0",
+  "scripts": {
+    "dev:admin": "cd admin && npm run dev",
+    "dev:uikit": "cd uikit && npm run dev",
+    "dev:both": "concurrently \"npm run dev:admin\" \"npm run dev:uikit\"",
+    "install:admin": "cd admin && npm install",
+    "install:uikit": "cd uikit && npm install",
+    "install:all": "npm run install:admin && npm run install:uikit"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
