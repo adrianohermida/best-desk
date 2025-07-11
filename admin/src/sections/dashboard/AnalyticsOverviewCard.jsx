@@ -89,7 +89,7 @@ export default function AnalyticsOverviewCard() {
   return (
     <Grid container sx={{ borderRadius: 4, boxShadow: theme.customShadows.section, ...applyBorderWithRadius(16, theme) }}>
       {overviewAnalytics.map((item, index) => (
-        <Grid key={index} size={{ xs: 6, sm: 6, md: 3 }}>
+        <Grid key={index} xs={6} sm={6} md={3}>
           <OverviewCard {...{ ...item, cardProps: { sx: { border: 'none', borderRadius: 0, boxShadow: 'none' } } }} />
         </Grid>
       ))}
