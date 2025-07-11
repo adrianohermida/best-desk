@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 
 // @project
-import { DRAWER_WIDTH } from '@/config/admin';
+import { DRAWER_WIDTH } from '../../../../admin/config';
 
 // Mixin for common ) (open/closed) drawer state0....
 const commonDrawerStyles = (theme) => ({
