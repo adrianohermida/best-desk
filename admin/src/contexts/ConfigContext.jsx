@@ -17,7 +17,7 @@ const ConfigContext = createContext(initialState);
 function ConfigProvider({ children }) {
   const [config] = useLocalStorage('sass-able-react-mui-admin-next-ts', initialState);
 
-  return <ConfigContext value={{ ...config }}>{children}</ConfigContext>;
+  return <ConfigContext.Provider value={{ ...config }}>{children}</ConfigContext.Provider>;
 }
 
 export { ConfigProvider, ConfigContext };
