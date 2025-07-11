@@ -49,7 +49,7 @@ export default function DashboardLayout({ children }) {
             mb: 2
           }}
         >
-          <Breadcrumbs />
+          <AdminBreadcrumbs />
         </Box>
         <Container maxWidth="lg" sx={{ px: { xs: 0, sm: 2 } }}>
           {children}
