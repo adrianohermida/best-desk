@@ -10,8 +10,8 @@ import Toolbar from '@mui/material/Toolbar';
 // @project
 import AppBarStyled from './AppBarStyled';
 import HeaderContent from './HeaderContent';
-import { handlerDrawerOpen, useGetMenuMaster } from '@/states/menu';
-import { DRAWER_WIDTH } from '@/config';
+import { handlerDrawerOpen, useGetMenuMaster } from '@/states/admin/menu';
+import { DRAWER_WIDTH } from '@/config/admin';
 
 // @assets
 import { IconLayoutSidebarRightCollapse, IconMenu2 } from '@tabler/icons-react';
