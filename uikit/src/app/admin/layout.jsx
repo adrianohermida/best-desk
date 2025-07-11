@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 
 // @project
-import AdminLayoutSimple from '@/layouts/admin/AdminLayoutSimple';
+import AdminLayout from '@/layouts/admin/AdminLayout';
 
 /***************************  LAYOUT - ADMIN (PRESERVING ORIGINAL TEMPLATE)  ***************************/
 
 export default function Layout({ children }) {
-  return <AdminLayoutSimple>{children}</AdminLayoutSimple>;
+  return <AdminLayout>{children}</AdminLayout>;
 }
 
 Layout.propTypes = { children: PropTypes.any };
