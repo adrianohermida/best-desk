@@ -1,5 +1,5 @@
 // @project
-import Main from '../../views/landings/default';
+import Main from '@/views/landings/default';
 
 /***************************  PAGE - ROOT  ***************************/
 
