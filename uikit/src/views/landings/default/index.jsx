@@ -4,12 +4,19 @@
 import dynamic from 'next/dynamic';
 
 // @project
-import { Feature20 } from '@/blocks/feature';
-import { Hero17 } from '@/blocks/hero';
 import LazySection from '@/components/LazySection';
 import useDataThemeMode from '@/hooks/useDataThemeMode';
 
-const ScrollFab = dynamic(() => import('@/components/ScrollFab'));
+// Dynamic imports for better performance
+const Hero17 = dynamic(() => import('@/blocks/hero').then((mod) => ({ default: mod.Hero17 })), {
+  loading: () => <div style={{ height: '600px' }} />
+});
+const Feature20 = dynamic(() => import('@/blocks/feature').then((mod) => ({ default: mod.Feature20 })), {
+  loading: () => <div style={{ height: '400px' }} />
+});
+const ScrollFab = dynamic(() => import('@/components/ScrollFab'), {
+  ssr: false
+});
 
 // @data
 import {
