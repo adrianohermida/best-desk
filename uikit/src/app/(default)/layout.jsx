@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types';
-// @next
-import dynamic from 'next/dynamic';
-
 // @project
-const MainLayout = dynamic(() => import('@/views/landings/default/layout'));
+import MainLayout from '@/views/landings/default/layout';
 
 /***************************  LAYOUT - DEFAULT  ***************************/
 
