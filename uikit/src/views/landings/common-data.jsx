@@ -168,7 +168,7 @@ export const pagesMegamenu = {
           { title: 'Contact Us (Section)', link: { href: PAGE_PATH.contactUs } },
           { title: 'Privacy Policy', link: { href: PAGE_PATH.privacyPolicyPage } },
           { title: 'Terms & Conditions', link: { href: PAGE_PATH.termsConditionPage } },
-          { title: 'FAQs', link: { href: PAGE_PATH.faq } },
+          { title: 'FAQs', link: { href: '/faqs' } },
           { title: 'Pricing', link: { href: PAGE_PATH.pricing } }
         ]
       },
