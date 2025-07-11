@@ -2,8 +2,8 @@
 import Typography from '@mui/material/Typography';
 
 // @project
-import ComponentsWrapper from '@/components/ComponentsWrapper';
-import PresentationCard from '@/components/cards/PresentationCard';
+import ComponentsWrapper from '../../../components/ComponentsWrapper';
+import PresentationCard from '../../../components/cards/PresentationCard';
 
 /***************************  SAMPLE PAGE  ***************************/
 
