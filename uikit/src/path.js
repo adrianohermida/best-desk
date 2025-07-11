@@ -3,7 +3,7 @@ function path(urlChunks) {
 }
 
 export const SECTION_PATH = '/sections';
-export const ADMIN_PATH = 'http://localhost:3001/dashboard';
+export const ADMIN_PATH = '/admin/dashboard';
 export const BUY_NOW_URL = '/sections/auth/register';
 export const FREEBIES_URL = '/sections/auth/login';
 export const DOCS_URL = 'https://phoenixcoded.gitbook.io/saasable ';
