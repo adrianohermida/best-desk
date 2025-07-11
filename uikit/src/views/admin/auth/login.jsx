@@ -2,52 +2,66 @@
 import NextLink from 'next/link';
 
 // @mui
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 
-// @project
-import AuthLogin from '@/sections/auth/AuthLogin';
-import AuthSocial from '@/sections/auth/AuthSocial';
-import Copyright from '@/sections/auth/Copyright';
-
-/***************************  AUTH - LOGIN  ***************************/
+/***************************  ADMIN AUTH - LOGIN  ***************************/
 
 export default function Login() {
   return (
-    <Stack sx={{ height: 1, alignItems: 'center', justifyContent: 'space-between', gap: 3 }}>
-      <Box sx={{ width: 1, maxWidth: 458 }}>
-        <Stack sx={{ gap: { xs: 1, sm: 1.5 }, textAlign: 'center', mb: { xs: 3, sm: 8 } }}>
-          <Typography variant="h1">Sign In</Typography>
-          <Typography variant="body1" color="text.secondary">
-            Welcome back! Select the method of login.
-          </Typography>
-        </Stack>
+    <Container maxWidth="sm" sx={{ py: 8 }}>
+      <Card>
+        <CardContent sx={{ p: 4 }}>
+          <Stack spacing={3}>
+            {/* Header */}
+            <Stack textAlign="center" spacing={1}>
+              <Typography variant="h3" component="h1">
+                Admin Login
+              </Typography>
+              <Typography variant="body1" color="text.secondary">
+                Welcome back! Enter your credentials to access the admin dashboard.
+              </Typography>
+            </Stack>
 
-        {/* Social login buttons */}
-        <AuthSocial />
+            {/* Login Form */}
+            <Stack spacing={2}>
+              <TextField fullWidth label="Email Address" type="email" variant="outlined" placeholder="Enter your email" />
 
-        <Divider sx={{ my: { xs: 4, sm: 5 } }}>
-          <Typography variant="body2" color="text.secondary">
-            or continue with email
-          </Typography>
-        </Divider>
+              <TextField fullWidth label="Password" type="password" variant="outlined" placeholder="Enter your password" />
 
-        {/* Login form */}
-        <AuthLogin />
+              <Button fullWidth variant="contained" size="large" sx={{ mt: 2 }}>
+                Sign In
+              </Button>
+            </Stack>
 
-        <Typography variant="body2" color="text.secondary" sx={{ mt: { xs: 2, sm: 3 } }}>
-          Don’t have an account?{' '}
-          <Link component={NextLink} underline="hover" variant="subtitle2" href="register" sx={{ '&:hover': { color: 'primary.dark' } }}>
-            Sign Up
-          </Link>
-        </Typography>
-      </Box>
+            <Divider />
 
-      {/* Copyright section*/}
-      <Copyright />
-    </Stack>
+            {/* Footer links */}
+            <Stack spacing={2} textAlign="center">
+              <Typography variant="body2" color="text.secondary">
+                Don't have an account?{' '}
+                <Link component={NextLink} href="/admin/auth/register" color="primary">
+                  Sign Up
+                </Link>
+              </Typography>
+
+              <Typography variant="body2" color="text.secondary">
+                <Link component={NextLink} href="/admin/dashboard" color="primary">
+                  Back to Dashboard
+                </Link>
+              </Typography>
+            </Stack>
+          </Stack>
+        </CardContent>
+      </Card>
+    </Container>
   );
 }
