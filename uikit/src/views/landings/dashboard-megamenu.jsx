@@ -49,11 +49,11 @@ export const dashboardMegamenu = {
         itemsList: [
           {
             title: 'Dashboard Principal',
-            link: { href: 'http://localhost:3001/dashboard', ...linkProps }
+            link: { href: '/admin/dashboard' }
           },
           {
             title: 'Página de Exemplo',
-            link: { href: 'http://localhost:3001/sample-page', ...linkProps }
+            link: { href: '/admin/sample-page' }
           }
         ]
       },
