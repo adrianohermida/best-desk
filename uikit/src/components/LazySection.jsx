@@ -54,9 +54,14 @@ export default function LazySection({ sections, fallback = <Loader />, offset = 
 
   return (
     <Box ref={ref} sx={{ minHeight: placeholderHeight }}>
-      {isVisible && loadedComponents.every((component) => component)
-        ? sectionList.map((section, index) => createElement(loadedComponents[index], { key: index, ...section.props }))
-        : isVisible && fallback}
+      {isVisible ? (
+        <>
+          {loadedComponents.map((component, index) =>
+            component ? createElement(component, { key: index, ...sectionList[index].props }) : null
+          )}
+          {isLoading && fallback}
+        </>
+      ) : null}
     </Box>
   );
 }
