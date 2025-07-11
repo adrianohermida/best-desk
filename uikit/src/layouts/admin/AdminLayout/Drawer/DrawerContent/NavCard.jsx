@@ -10,9 +10,9 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 // @project
-import LogoSection from '@/components/logo';
-import MainCard from '@/components/MainCard';
-import { AvatarSize } from '@/enum';
+import LogoSection from '../../../../../components/logo';
+import MainCard from '../../../../../components/admin/MainCard';
+import { AvatarSize } from '../../../../../enum';
 
 // @assets
 import { IconBolt } from '@tabler/icons-react';
