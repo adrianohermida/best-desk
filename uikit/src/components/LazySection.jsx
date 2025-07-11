@@ -13,16 +13,35 @@ export default function LazySection({ sections, fallback = <Loader />, offset = 
   const sectionList = useMemo(() => (Array.isArray(sections) ? sections : [sections]), [sections]);
   const [isVisible, setIsVisible] = useState(false);
   const [loadedComponents, setLoadedComponents] = useState(Array(sectionList.length).fill(null));
+  const [isLoading, setIsLoading] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
+        if (entry.isIntersecting && !isVisible && !isLoading) {
           setIsVisible(true);
-          Promise.all(sectionList.map((section) => section.importFunc().then((module) => module.default))).then((components) =>
-            setLoadedComponents(components)
-          );
+          setIsLoading(true);
+
+          // Load components individually to avoid blocking
+          sectionList.forEach((section, index) => {
+            section
+              .importFunc()
+              .then((module) => module.default)
+              .then((component) => {
+                setLoadedComponents((prev) => {
+                  const updated = [...prev];
+                  updated[index] = component;
+                  return updated;
+                });
+              })
+              .catch(console.error)
+              .finally(() => {
+                if (index === sectionList.length - 1) {
+                  setIsLoading(false);
+                }
+              });
+          });
         }
       },
       { rootMargin: offset, threshold: 0.1 }
@@ -31,7 +50,7 @@ export default function LazySection({ sections, fallback = <Loader />, offset = 
     if (ref.current) observer.observe(ref.current);
 
     return () => observer.disconnect();
-  }, [sectionList, offset, isVisible]);
+  }, [sectionList, offset, isVisible, isLoading]);
 
   return (
     <Box ref={ref} sx={{ minHeight: placeholderHeight }}>
